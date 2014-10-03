@@ -14,7 +14,9 @@ import QSTK.qstkutil.DataAccess as da
 import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import pandas.io.data
+from scipy import stats
 
 print "Pandas Version", pd.__version__
 
@@ -22,14 +24,17 @@ print "Pandas Version", pd.__version__
 ''' Main Function'''
 
 # List of symbols
-ls_symbols = ["AIR.PA", "LG.PA",   "ML.PA",    "DG.PA", "^FCHI" ]  
-ls_names   = ["Airbus", "Lafarge", "Michelin", "Vinci", "CAC 40"]
+ls_symbols = ["AIR.PA", "LG.PA",   "GLE.PA",    "DG.PA", "^FCHI" ]  
+ls_names   = ["Airbus", "Lafarge", "Societe Generale", "Vinci", "CAC 40"]
 
 # Start and End date of the charts
 dt_start = dt.datetime(2009, 1, 2)
 dt_end   = dt.datetime(2014, 10,3)  
 
 ldf_data = pd.io.data.get_data_yahoo(ls_symbols,start=dt_start, end=dt_end)
+
+for skey in ['Volume', 'Adj Close']:
+    ldf_data[skey] = ldf_data[skey].fillna(method='backfill')
 
 ls_volume = ldf_data['Volume'].values
 ls_price  = ldf_data['Adj Close'].values
@@ -53,3 +58,41 @@ plt.savefig('normalized.pdf', format='pdf')
 
 # Copy the normalized prices to a new ndarry to find returns.
 ls_rets = ls_normalized_price.copy()
+
+# Calculate the daily returns of the prices. (Inplace calculation)
+# returnize0 works on ndarray and not dataframes.
+tsu.returnize0(ls_rets)
+
+# Plotting the plot of daily returns
+plt.clf()
+plt.plot(ls_date[0:100], ls_rets[0:100,0])
+plt.plot(ls_date[0:100], ls_rets[0:100,3])
+plt.legend([ls_names[0], ls_names[3]])
+plt.axhline(y=0, color='r')
+plt.ylabel('Daily Returns')
+plt.xlabel('Date')
+plt.savefig('rets.pdf', format='pdf')
+
+# Some regression analysis on the dependency of the above stocks
+nsize = 5 # number of stocks
+slope  = np.zeros((nsize-1, nsize))
+rvalue = np.zeros((nsize-1, nsize))
+pvalue = np.zeros((nsize-1, nsize))
+
+for i in range(0, nsize-1):
+    for j in range (i+1, nsize):
+        slope[i,j], intercept, rvalue[i,j], pvalue[i,j], std_err =\
+            stats.linregress(ls_rets[0:500,i],ls_rets[0:500,j])
+        
+# Plotting the scatter plot of daily returns between two stocks
+plt.clf()
+plt.scatter(ls_rets[:200, 1], ls_rets[:200, 3], c='blue')
+plt.xlabel(ls_names[1])
+plt.ylabel(ls_names[3])
+plt.savefig('scatterLafargevVinci.pdf', format='pdf')
+
+plt.clf()
+plt.scatter(ls_rets[:200, 0], ls_rets[:200, 2], c='blue')
+plt.xlabel(ls_names[0])
+plt.ylabel(ls_names[2])
+plt.savefig('scatterAirbusvSG.pdf', format='pdf')
