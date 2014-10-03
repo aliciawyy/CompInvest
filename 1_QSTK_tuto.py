@@ -26,7 +26,7 @@ ls_symbols = ["AIR.PA", "LG.PA",   "ML.PA",    "DG.PA", "^FCHI" ]
 ls_names   = ["Airbus", "Lafarge", "Michelin", "Vinci", "CAC 40"]
 
 # Start and End date of the charts
-dt_start = dt.datetime(2006, 1, 1)
+dt_start = dt.datetime(2009, 1, 2)
 dt_end   = dt.datetime(2014, 10,3)  
 
 ldf_data = pd.io.data.get_data_yahoo(ls_symbols,start=dt_start, end=dt_end)
@@ -42,3 +42,14 @@ plt.ylabel('Adjusted Close')
 plt.xlabel('Date')
 plt.savefig('adjustedclose.pdf', format='pdf')
 
+# Normalizing the prices to start at 1 and see relative returns
+ls_normalized_price = ls_price / ls_price[0, :]
+plt.clf()
+plt.plot(ls_date, ls_normalized_price)
+plt.legend(ls_names)
+plt.ylabel('Normalized Close')
+plt.xlabel('Date')
+plt.savefig('normalized.pdf', format='pdf')
+
+# Copy the normalized prices to a new ndarry to find returns.
+ls_rets = ls_normalized_price.copy()
