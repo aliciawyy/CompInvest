@@ -34,7 +34,10 @@ dt_end   = dt.datetime(2014, 10,3)
 ldf_data = pd.io.data.get_data_yahoo(ls_symbols,start=dt_start, end=dt_end)
 
 for skey in ['Volume', 'Adj Close']:
-    ldf_data[skey] = ldf_data[skey].fillna(method='backfill')
+    '''First forward fill then backward fill'''
+    ldf_data[skey] = ldf_data[skey].fillna(method='ffill')
+    ldf_data[skey] = ldf_data[skey].fillna(method='bfill')
+    ldf_data[skey] = ldf_data[skey].fillna(1.0)
 
 ls_volume = ldf_data['Volume'].values
 ls_price  = ldf_data['Adj Close'].values
@@ -82,7 +85,7 @@ pvalue = np.zeros((nsize-1, nsize))
 for i in range(0, nsize-1):
     for j in range (i+1, nsize):
         slope[i,j], intercept, rvalue[i,j], pvalue[i,j], std_err =\
-            stats.linregress(ls_rets[0:500,i],ls_rets[0:500,j])
+            stats.linregress(ls_rets[:,i],ls_rets[:,j])
         
 # Plotting the scatter plot of daily returns between two stocks
 plt.clf()
