@@ -29,7 +29,7 @@ ls_names   = ["Airbus", "Lafarge", "Societe Generale", "Vinci", "CAC 40"]
 
 # Start and End date of the charts
 dt_start = dt.datetime(2009, 1, 2)
-dt_end   = dt.datetime(2014, 10,3)  
+dt_end   = dt.datetime.today()
 
 ldf_data = pd.io.data.get_data_yahoo(ls_symbols,start=dt_start, end=dt_end)
 

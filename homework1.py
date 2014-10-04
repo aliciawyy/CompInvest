@@ -35,8 +35,14 @@ def simulate(startdate, enddate, ls_symbols, ls_allocation):
     @return cum_ret Cumulative return of the total portfolio
     ''' 
     
+    print 'Start date:', startdate
+    print 'End date:', enddate
+    print 'Symbols:', ls_symbols
+    print 'Optimal Allocations:', ls_allocation
+    
     # Get the data
-    ldf_data = web.get_data_yahoo(ls_symbols,start = startdate, end = enddate)
+    ldf_data = web.get_data_yahoo(ls_symbols,
+                                  start=startdate, end=enddate)
     
     # Clean the NaN of the data
     for skey in ['Adj Close']:
@@ -48,15 +54,26 @@ def simulate(startdate, enddate, ls_symbols, ls_allocation):
     # Get the adjusted close price and the index of the data
     ls_price  = ldf_data['Adj Close'].values
     ls_date   = ldf_data['Adj Close'].index    
-    
-    # Get the daily returns
-    ls_rets = ls_price.copy()
-    tsu.returnize0(ls_rets)
+      
+    # 252 trading days per year
+    ndays = 252
     
     # Estimate portfolio daily returns
-    ls_portrets = np.sum(ls_rets * ls_allocation, axis = 1)
+    ls_port = np.sum(ls_price * ls_allocation, axis = 1)
     
-    vol = np.std(ls_portrets)
+    # Get the daily returns
+    ls_portrets = ls_port.copy()
+    tsu.returnize0(ls_portrets)    
+    
+    vol       = np.std(ls_portrets)
+    daily_ret = np.average(ls_portrets)
+    sharpe    = daily_ret / vol * np.sqrt(ndays)
+    cum_ret   = ls_port[-1]/ls_port[0]
+    
+    print 'Volatility (stdev of daily returns):', vol
+    print 'Average daily return:', daily_ret  
+    print 'Sharpe Ratio:', sharpe
+    print 'Cumulative return:', cum_ret
     
     return [vol, daily_ret, sharpe, cum_ret]
 
@@ -64,7 +81,8 @@ def main():
     ''' Main Function'''
     
     startd = dt.datetime(2011, 1, 1)
-    endd   = dt.datetime(2011, 12, 31)
+    endd   = dt.datetime(2011, 12, 30)
+    #endd   = dt.datetime.today()
     
     symbols = ['AAPL', 'GLD', 'GOOG', 'XOM']
     allocation = [0.4, 0.4, 0.0, 0.2]
