@@ -20,7 +20,7 @@ from scipy import stats
 
 print "Pandas Version", pd.__version__
 
-#def main():
+# def main():
 ''' Main Function'''
 
 # List of symbols
