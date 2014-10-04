@@ -63,6 +63,11 @@ data = {'state': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada'],
         'pop':   [1.5, 1.7, 3.6, 2.4, 2.9]}
 frame = DataFrame(data)
 
+# Initialization from a nested dict of dicts format
+pop = {'Nevada':{2001:2.4, 2002:2.9},
+       'Ohio':{2000:1.5, 2001:1.7, 2002:3.6}}
+frame3 = DataFrame(pop)
+
 # To specify the order of columns
 print DataFrame(data)
 print DataFrame(data, columns = ['year', 'state', 'pop'])
@@ -78,6 +83,27 @@ print frame2['pop']
 # A row of a DataFrame can be retrieved by indicating the _ix_ indexing field
 print frame2.ix['three']
 
+# Get the columns' names and the rows' names
+print frame2.columns, frame2.index
+
 # Columns can be modified by assignment with a scalar or an array of values
 frame2['debt'] = 16.5
 frame2['debt'] = np.arange(5.)
+# Columns can also be modified with a Series, the missing index will be assigned
+# NaN automatically, even if there are values before
+print frame2
+val = Series([-1.2, -1.5, -1.7], index = ['two', 'four', 'five'])
+frame2['debt'] = val
+print frame2
+
+# Assigning a column that doesn't exist
+frame2['eastern'] = frame2.state == 'Ohio'
+print frame2
+
+# Delete a column
+del frame2['eastern']
+print frame2
+
+# Transport the result
+print frame3
+print frame3.T
