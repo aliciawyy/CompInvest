@@ -1,0 +1,23 @@
+---
+title: CAPM
+output: html_document
+---
+
+### Definition of Capital Asset Pricing Model (CAPM) on [investopedia](http://www.investopedia.com/terms/c/capm.asp#axzz2Lc5AZO48)
+
+A model that describes the relationship between risk and expected return and that is used in the pricing of risky securities.
+
+$$
+r_a = r_f + \beta (r_m - r_f)
+$$
+
+Where
+
+- $r_f$ the risk-free rate
+- $r_m$ the expected market return
+- $\beta$ the risk measure/security
+
+The general idea behind CAPM is that investors need to be compensated in two ways: time value of money and risk.
+
+The time value of money is represented by the risk-free rate $r_f$ in the formula and compensates the investors for placing money in any investment over a period of time. The other half of the formula represents risk and calculates the amount of compensation the investor needs for taking on additional risk. This is calculated by taking a risk measure $\beta$ that compares the returns of the asset to the market over a period of time and to the market premium $(r_m-r_f)$.
+
