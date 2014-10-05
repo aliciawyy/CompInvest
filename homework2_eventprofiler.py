@@ -15,6 +15,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import copy
 
 from GetDataLocal import GetDataLocalYahoo
 
@@ -22,8 +23,7 @@ from GetDataLocal import GetDataLocalYahoo
 def find_events(ls_symbols, d_data):
     ''' Finding the event dataframe '''
     
-    df_close = d_data['close']
-    ts_market = df_close['SPY']
+    df_close = d_data['actual_close']
 
     print "Finding Events"
 
@@ -36,22 +36,30 @@ def find_events(ls_symbols, d_data):
 
     for s_sym in ls_symbols:
         for i in range(1, len(ldt_timestamps)):
+            
             # Calculating the returns for this timestamp
             f_symprice_today = df_close[s_sym].ix[ldt_timestamps[i]]
             f_symprice_yest = df_close[s_sym].ix[ldt_timestamps[i - 1]]
             
-            f_marketprice_today = ts_market.ix[ldt_timestamps[i]]
-            f_marketprice_yest = ts_market.ix[ldt_timestamps[i - 1]]
-            
-            f_symreturn_today = (f_symprice_today / f_symprice_yest) - 1
-            f_marketreturn_today = (f_marketprice_today / f_marketprice_yest) - 1
-
-            # Event is found if the symbol is down more then 3% while the
-            # market is up more then 2%
-            if f_symprice_yesty >= 5.0 and f_symprice_today < 5.0:
+            if f_symprice_yest >= 9.0 and f_symprice_today < 9.0:
                 df_events[s_sym].ix[ldt_timestamps[i]] = 1
 
     return df_events    
+
+## ------------------------------------------------------------
+def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
+    
+    d_data = GetDataLocalYahoo(startd, endd, ls_symbols)
+    
+    df_events = find_events(ls_symbols, d_data)
+    
+    print 'Number of events', np.sum(np.sum(df_events.notnull()))
+        
+    print "Creating Study"
+    ep.eventprofiler(df_events, d_data, i_lookback=20, i_lookforward=20,
+                s_filename = filename, b_market_neutral=True, 
+                b_errorbars = True, s_market_sym='SPY')    
+
 
 ## ------------------------------------------------------------
 def main():
@@ -69,24 +77,10 @@ def main():
     startd = dt.datetime(2008, 1,  1 )
     endd   = dt.datetime(2009, 12, 31)    
   
-    # Get the data of the two lists for the same period
-    d_data08 = GetDataLocalYahoo(startd, endd, symbols08)
-    d_data12 = GetDataLocalYahoo(startd, endd, symbols12)
+    EventTest(startd, endd, symbols08, "MyEventStudy08.9.pdf")
+    EventTest(startd, endd, symbols12, "MyEventStudy12.9.pdf")
+       
     
-    df_events08 = find_events(symbols08, d_data08)
-    df_events12 = find_events(symbols12, d_data12)
-    
-    print "Creating Study 2008"
-    ep.eventprofiler(df_events08, d_data08, i_lookback=20, i_lookforward=20,
-                s_filename='MyEventStudy08.pdf', b_market_neutral=True, 
-                b_errorbars=True, s_market_sym='SPY')
-    
-    print "Creating Study 2012"
-    ep.eventprofiler(df_events12, d_data12, i_lookback=20, i_lookforward=20,
-                s_filename='MyEventStudy12.pdf', b_market_neutral=True, 
-                b_errorbars=True, s_market_sym='SPY')    
-    
-
 ## ------------------------------------------------------------
 if __name__ == '__main__':
     main()

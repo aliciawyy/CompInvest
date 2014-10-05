@@ -27,6 +27,8 @@ def GetDataLocalYahoo(startdate, enddate, ls_symbols):
     # Define the keys
     ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']    
     
+    dataobj = da.DataAccess('Yahoo')
+    
     ldf_data = dataobj.get_data(ldt_timestamps, ls_symbols, ls_keys)
     
     # Range the data
