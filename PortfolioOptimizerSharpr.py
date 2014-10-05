@@ -6,9 +6,9 @@ period
 @author: Alicia Wang
 @date: 4 Oct 2014
 '''
+
 # QSTK Imports
 import QSTK.qstkutil.tsutil as tsu
-
 
 # Third Party import
 import datetime as dt
@@ -56,7 +56,6 @@ def PortfolioOptimizer(startdate, enddate, ls_symbols, ref_symbol,
     # Normalizing the prices of the equity candidates and reference
     ls_normalized_price  = ls_price  /  ls_price[0, :]
     ref_normalized_price = ref_price / ref_price[0]
-
 
     na_data = ls_normalized_price.copy()
     tsu.returnize0(na_data)

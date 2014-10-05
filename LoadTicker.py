@@ -7,7 +7,7 @@ from pandas import Series
 
 #--------------------------------------------------------
 def LoadTickerList(filename):
-    tickerlist = pd.read_csv(filename, sep = ',')
+    tickerlist = pd.read_csv(filename, header = False, sep = '\t')
     return tickerlist
     
 #--------------------------------------------------------    
