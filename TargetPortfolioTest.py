@@ -1,8 +1,8 @@
 '''
 The objective of the function in this file is to make a back test with a target portfolio decided one year in advance then to test it in the current year
 
-|----------------------|-------------------|
-   strategy period         test period
+|------------------------|-------------------|
+     strategy period          test period
 
 @author Alicia Wang
 @date 5 oct 2014

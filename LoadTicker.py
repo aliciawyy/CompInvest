@@ -1,4 +1,6 @@
 '''
+This file contains the functions to load lists of tickers.
+
 @author Alicia Wang
 @date 4 oct 2014
 '''
