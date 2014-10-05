@@ -1,6 +1,7 @@
 # Temporary files. Added by AW
 *~
 *.pdf
+*.Rhistory
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
