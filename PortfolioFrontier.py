@@ -20,7 +20,8 @@ from LoadTicker import LoadCAC40
 
 #-----------------------------------------------------------------------
 def getFrontier(startdate, enddate, ls_symbols, ref_symbol,
-                ls_names = [], filename = "EquitiesvFrontier.pdf"):
+                ls_names = [], filename = "EquitiesvFrontier.pdf", 
+                target_return = 0.015):
     '''
     @param ls_symbols candidates equities
     @param ls_names   candidates names
@@ -88,7 +89,7 @@ def getFrontier(startdate, enddate, ls_symbols, ref_symbol,
         lf_std.append(f_std)
         lna_portfolios.append(na_weights)    
         
-    f_target = 0.0015
+    f_target = target_return
     (na_weights, f_std, b_error) = \
                 tsu.OptPort(na_data, f_target, na_lower, na_upper, s_type="long")
     
@@ -96,10 +97,8 @@ def getFrontier(startdate, enddate, ls_symbols, ref_symbol,
     print 'Volatility is ', f_std
 
     for i in range(len(na_weights)):
-        if na_weights[i] > 0.00001:
-            print ls_names[i], ':', na_weights[i]
-        
-        
+        if abs(na_weights[i]) > 0.00001:
+            print ls_names[i], ':', na_weights[i]       
         
     plt.clf()
     
@@ -128,6 +127,8 @@ def getFrontier(startdate, enddate, ls_symbols, ref_symbol,
     plt.ylabel('Expected Return')
     plt.xlabel('StDev')
     plt.savefig(filename, format='pdf')
+    
+    return na_weights
     
 
 #-----------------------------------------------------------

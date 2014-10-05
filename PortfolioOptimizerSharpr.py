@@ -18,6 +18,65 @@ import pandas.io.data as web
 
 from LoadTicker import LoadCAC40
 #-------------------------------------------------------------------
+def DrawPortfolioRef(startdate, enddate, ls_symbols, ref_symbol,
+                      alloc, # given allocation
+                      filename = "portfoliovCAC40.pdf"):
+
+  
+    # Get the portfolio and reference data from yahoo    
+    ldf_data = web.DataReader(ls_symbols, 'yahoo', 
+                              start=startdate, end=enddate)   
+    ref_data = web.DataReader(ref_symbol, 'yahoo',
+                              start=startdate, end=enddate)  
+    
+    # Clean the NaN of the data
+    key_source = 'Adj Close'
+    for skey in ['Volume', key_source]:
+        '''First forward fill then backward fill'''
+        ldf_data[skey] = ldf_data[skey].fillna(method='ffill')
+        ldf_data[skey] = ldf_data[skey].fillna(method='bfill')
+        ldf_data[skey] = ldf_data[skey].fillna(1.0)
+        
+        ref_data[skey] = ref_data[skey].fillna(method='ffill')
+        ref_data[skey] = ref_data[skey].fillna(method='bfill')
+        ref_data[skey] = ref_data[skey].fillna(1.0)       
+    
+    # Get the adjusted close price and the index of the data
+    ls_price  = ldf_data[key_source].values
+    ls_date   = ldf_data[key_source].index    
+    
+    # Get the reference price
+    ref_price = ref_data[key_source].values
+    ref_date  = ref_data[key_source].index
+    
+    # Normalizing the prices of the equity candidates and reference
+    ls_normalized_price  = ls_price  /  ls_price[0, :]
+    ref_normalized_price = ref_price / ref_price[0]
+    
+    ls_port = np.sum(ls_normalized_price * alloc, axis = 1)  
+    ls_portrets = ls_port.copy()
+    tsu.returnize0(ls_portrets)   
+
+    vol       = np.std(ls_portrets)
+    daily_ret = np.average(ls_portrets)   
+    
+    print 'Volatility (stdev of daily returns)/reference volatility:', vol, \
+          '/', np.std(ref_normalized_price)
+    print 'Average daily return', daily_ret
+    print 'Cumulative return/reference return:', ls_port[-1]/ls_port[0]-1, \
+          '/', ref_normalized_price[-1]/ref_normalized_price[0]-1
+    
+   
+    # Plotting the prices with x-axis=timestamps
+    plt.clf()
+    plt.plot(ls_date, ls_port)
+    plt.plot(ref_date, ref_normalized_price)
+    plt.legend(['Portfolio', ref_symbol])
+    plt.ylabel('Normalized Close Price')
+    plt.xlabel('Date')
+    plt.savefig(filename, format='pdf') 
+
+#-------------------------------------------------------------------
 def PortfolioOptimizer(startdate, enddate, ls_symbols, ref_symbol,
                        filename = "portfoliovCAC40.pdf", ls_names = []):
     '''
