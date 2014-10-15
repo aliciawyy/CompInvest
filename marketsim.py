@@ -18,8 +18,9 @@ import datetime as dt
 import sys
 import csv
 import copy
+import numpy as np
 
-from pandas import DataFrame
+from pandas import Series, DataFrame
 from GetDataLocal import GetDataLocalYahoo
 
 
@@ -53,8 +54,11 @@ def ReadOrders(filename):
       
     return unique_dates, unique_symbols, order_frame
         
-        
 #-------------------------------------------------------------------------
+def WriteOrders(data_frame, filename):        
+    data_frame.to_csv(filename, index = True, header = True)
+#-------------------------------------------------------------------------
+
 def main(argv):
     '''Main function'''
     starting_cash = sys.argv[1]
@@ -66,11 +70,11 @@ def main(argv):
     unique_dates, unique_symbols, order_frame = ReadOrders(input_file)
     
     startdate = unique_dates[0]
-    enddate   = unique_dates[-1] + dt.timedelta(days = 1)
+    enddate   = unique_dates[-1] # + dt.timedelta(days = 1)
     price_matrix = GetDataLocalYahoo(startdate, enddate, unique_symbols)
     
     # Get the price data of the symbols
-    price_frame = DataFrame(price_matrix['actual_close'], columns = unique_symbols)
+    price_frame = DataFrame(price_matrix['close'], columns = unique_symbols)
     
     trade_frame = copy.deepcopy(price_frame)
     trade_frame = trade_frame * 0
@@ -81,9 +85,30 @@ def main(argv):
         transact = order_frame.transaction.ix[i]
         trade_frame[symbol].ix[date] += transact
         
-    print trade_frame
+    nsize = len(trade_frame.index)
     
-          
+    cashflow = Series(np.zeros(nsize), index = trade_frame.index)
+    
+    cashflow[0] = starting_cash
+
+
+    cashflow -= np.sum(trade_frame * price_frame, axis = 1)
+
+    price_frame['_cash'] = 1.0
+    trade_frame['_cash'] = cashflow
+    
+    hold_frame = np.cumsum(trade_frame, axis = 0)
+    
+#    print hold_frame
+
+    portfolio = np.sum(hold_frame * price_frame, axis = 1)
+    
+#    print portfolio
+
+    portfolio.index.name = 'date'
+    portfolio.name = 'value'
+    WriteOrders(portfolio, output_file)
+    
     
 #-------------------------------------------------------------------------
 if __name__ == '__main__':
