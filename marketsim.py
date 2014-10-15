@@ -1,0 +1,90 @@
+'''
+This is a market simulation tool which takes an input .csv file for the orders
+and gives an .csv value as output.
+
+This program will be launched as following
+
+ $ python marketsim.py 1000000 orders.csv values.csv
+ 
+Where the number represents starting cash and orders.csv is a file of orders. 
+
+
+@author Alicia Wang
+@date 15 oct 2014
+'''
+
+# Third Party Imports
+import datetime as dt
+import sys
+import csv
+import copy
+
+from pandas import DataFrame
+from GetDataLocal import GetDataLocalYahoo
+
+
+#-------------------------------------------------------------------------
+def ReadOrders(filename):
+    reader = csv.reader(open(filename, 'rU'), delimiter = ',')
+    
+    ls_date = []
+    ls_symbol = []
+    ls_order  = []
+    for row in reader:
+        ls_date.append(dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16))
+        ls_symbol.append(row[3])
+        if row[4] == 'Sell':
+            ls_order.append(-int(row[5]))
+        else:
+            ls_order.append(int(row[5]))
+                
+        
+    # Create the data
+    order_data = { 'date'       :ls_date,
+                   'symbol'     :ls_symbol,
+                   'transaction':ls_order     }
+    
+    order_frame = DataFrame(order_data)
+
+    unique_dates   = list(set(ls_date))
+    unique_symbols = list(set(ls_symbol))
+    
+    unique_dates.sort()
+      
+    return unique_dates, unique_symbols, order_frame
+        
+        
+#-------------------------------------------------------------------------
+def main(argv):
+    '''Main function'''
+    starting_cash = sys.argv[1]
+    
+    input_file  = sys.argv[2]
+    output_file = sys.argv[3]
+    
+    # Read the order file
+    unique_dates, unique_symbols, order_frame = ReadOrders(input_file)
+    
+    startdate = unique_dates[0]
+    enddate   = unique_dates[-1] + dt.timedelta(days = 1)
+    price_matrix = GetDataLocalYahoo(startdate, enddate, unique_symbols)
+    
+    # Get the price data of the symbols
+    price_frame = DataFrame(price_matrix['actual_close'], columns = unique_symbols)
+    
+    trade_frame = copy.deepcopy(price_frame)
+    trade_frame = trade_frame * 0
+    
+    for i in order_frame.index:
+        date     = order_frame.date.ix[i]
+        symbol   = order_frame.symbol.ix[i]
+        transact = order_frame.transaction.ix[i]
+        trade_frame[symbol].ix[date] += transact
+        
+    print trade_frame
+    
+          
+    
+#-------------------------------------------------------------------------
+if __name__ == '__main__':
+    main(sys.argv[1:])

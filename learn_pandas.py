@@ -71,11 +71,10 @@ frame3 = DataFrame(pop)
 # To specify the order of columns
 print DataFrame(data)
 print DataFrame(data, columns = ['year', 'state', 'pop'])
-print DataFrame(data, columns = ['year', 'state', 'pop', 'debt'],
-                index = ['one', 'two', 'three', 'four', 'five'])
 
 frame2 = DataFrame(data, columns = ['year', 'state', 'pop', 'debt'],
                    index = ['one', 'two', 'three', 'four', 'five'])
+
 
 # A column of a DataFrame can be retrieved as a Series
 print frame2['pop']
@@ -97,7 +96,7 @@ frame2['debt'] = val
 print frame2
 
 # Assigning a column that doesn't exist
-frame2['eastern'] = frame2.state == 'Ohio'
+frame2['eastern'] = (frame2.state == 'Ohio')
 print frame2
 
 # Delete a column
@@ -107,3 +106,14 @@ print frame2
 # Transport the result
 print frame3
 print frame3.T
+
+# The index and columns of dataframe have their names
+frame3.index.name = "year"
+frame3.columns.name = "state"
+print "names of index and of columns:\n", frame3
+print "values of the dataframe\n", frame3.values
+
+arr2D = np.array([[ 2.1, 1.5],[ 2.4,  1.7], [ 2.9,  3.6]])
+print arr2D
+frame4 = DataFrame(arr2D, index = ["one", "two", "three"])
+print frame4

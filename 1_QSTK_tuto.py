@@ -24,12 +24,13 @@ print "Pandas Version", pd.__version__
 ''' Main Function'''
 
 # List of symbols
-ls_symbols = ["AIR.PA", "LG.PA",   "GLE.PA",    "DG.PA", "^FCHI" ]  
-ls_names   = ["Airbus", "Lafarge", "Societe Generale", "Vinci", "CAC 40"]
+ls_symbols = ["ML.PA", "LG.PA", "DG.PA", "^FCHI" ]  
+ls_names   = ["Michelin", "Lafarge", "Vinci", "CAC 40"]
 
 # Start and End date of the charts
-dt_start = dt.datetime(2009, 1, 2)
+
 dt_end   = dt.datetime.today()
+dt_start = dt_end - dt.timedelta(days = 365)
 
 ldf_data = pd.io.data.get_data_yahoo(ls_symbols,start=dt_start, end=dt_end)
 
@@ -77,7 +78,7 @@ plt.xlabel('Date')
 plt.savefig('rets.pdf', format='pdf')
 
 # Some regression analysis on the dependency of the above stocks
-nsize = 5 # number of stocks
+nsize = len(ls_symbols) # number of stocks
 slope  = np.zeros((nsize-1, nsize))
 rvalue = np.zeros((nsize-1, nsize))
 pvalue = np.zeros((nsize-1, nsize))
@@ -88,6 +89,7 @@ for i in range(0, nsize-1):
             stats.linregress(ls_rets[:,i],ls_rets[:,j])
         
 # Plotting the scatter plot of daily returns between two stocks
+'''
 plt.clf()
 plt.scatter(ls_rets[:200, 1], ls_rets[:200, 3], c='blue')
 plt.xlabel(ls_names[1])
@@ -99,3 +101,4 @@ plt.scatter(ls_rets[:200, 0], ls_rets[:200, 2], c='blue')
 plt.xlabel(ls_names[0])
 plt.ylabel(ls_names[2])
 plt.savefig('scatterAirbusvSG.pdf', format='pdf')
+'''
