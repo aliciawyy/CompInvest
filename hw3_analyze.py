@@ -2,7 +2,7 @@
 This file contains the function to compare the performance of a portfolio with
 a reference. It will be called like
 
- $ python analyze.py values.csv \$SPX
+ $ python hw3_analyze.py values.csv \$SPX
  
 @author Alicia Wang
 @date 15 oct 2014
