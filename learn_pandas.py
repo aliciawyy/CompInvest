@@ -117,3 +117,12 @@ arr2D = np.array([[ 2.1, 1.5],[ 2.4,  1.7], [ 2.9,  3.6]])
 print arr2D
 frame4 = DataFrame(arr2D, index = ["one", "two", "three"])
 print frame4
+'''
+This file contains the routine to compute the bollinger band.
+'''
+# -------------------------------------------------------
+def main():
+
+# -------------------------------------------------------
+if __name__ == '__main__':
+    main()
