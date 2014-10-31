@@ -27,7 +27,7 @@ def ComputeBollingerBands(ls_symbols, startdate, enddate, period, filename = '')
     print 'Start date : ', enddate
     print 'Lookback period : ', period
     
-    df_close = d_data['actual_close']
+    df_close = d_data['close']
         
     bol_mean = ts.rolling_mean(df_close, period)
     bol_std = ts.rolling_std(df_close, period)    
