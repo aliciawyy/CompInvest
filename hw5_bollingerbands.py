@@ -50,8 +50,11 @@ def ComputeBollingerBands(ls_symbols, startdate, enddate, period, filename = '')
     val = DataFrame(bol_val, index = df_close.index, 
                     columns = ls_symbols)
     
-    print val[-5:]
+    # print val[-5:]
     val.to_csv('bol.csv')
+    
+    # return the bollinger value
+    return val
     
     
     
