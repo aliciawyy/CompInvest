@@ -55,8 +55,24 @@ def GenerateTradingbyEvents(ls_symbols, d_data):
                 df_event_trading = AddOrder(df_event_trading, ldt_timestamps[i+5], s_sym, "SELL", 100)
                 
     return df_event_trading
+
 ## ------------------------------------------------------------
-def main():
+def GenerateTradingWithEvents(df_events):
+    df_event_trading = DataFrame(columns = ["year", "month", "day", 
+                                            "symbol", "transaction", "number"])   
+    
+    ldt_timestamps = df_events.index
+    for s_sym in df_events.columns:
+        for i in range(len(ldt_timestamps)-5):   
+            if (df_events[s_sym].ix[ldt_timestamps[i]] == 1):
+                df_event_trading = AddOrder(df_event_trading, ldt_timestamps[i], s_sym, "BUY", 100)
+                df_event_trading = AddOrder(df_event_trading, ldt_timestamps[i+5], s_sym, "SELL", 100)  
+                
+    return df_event_trading
+                
+    
+## ------------------------------------------------------------
+def mainTest():
     '''Main Function'''
     
     dataobj = da.DataAccess('Yahoo')

@@ -72,7 +72,7 @@ def main(argv):
     unique_dates, unique_symbols, order_frame = ReadOrders(input_file)
     
     startdate = unique_dates[0]
-    enddate   = unique_dates[-1] # + dt.timedelta(days = 1)
+    enddate   = unique_dates[-1] + dt.timedelta(days = 1)
     price_matrix = GetDataLocalYahoo(startdate, enddate, unique_symbols)
     
     # Get the price data of the symbols

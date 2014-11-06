@@ -17,10 +17,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import copy
+from pandas import DataFrame
 
 # Internal Imports
 from GetDataLocal import GetDataLocalYahoo
 from hw5_bollingerbands import ComputeBollingerBands
+from hw4_tradinggen import GenerateTradingWithEvents, AddOrder
 
 def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     
@@ -34,15 +36,15 @@ def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     df_events = df_events * np.NAN   
     
     ref        = -2.0
-    market_ref =  1.3
+    market_ref =  1.4
     
     for s_sym in ls_symbols:
         for i in range(1, len(ldt_timestamps)):
-            if bolval[s_sym][ldt_timestamps[i-1]] >= ref \
+            if bolval[s_sym][ldt_timestamps[i-1]]   >= ref \
                and bolval[s_sym][ldt_timestamps[i]] < ref \
                and ts_market[ldt_timestamps[i]] >= market_ref:
                 df_events[s_sym][ldt_timestamps[i]] = 1
-    
+
     return df_events
 
          
@@ -75,6 +77,9 @@ def main():
                     s_filename = filename, b_market_neutral=True, 
                     b_errorbars = True, s_market_sym='SPY')    
 
+    print 'Generate orders with the events'
+    df_event_trading = GenerateTradingWithEvents(df_events)
+    df_event_trading.to_csv("ordersbollinger5d.csv", index = False, header = False)
 
 #-----------------------------------------------------------
 if __name__ == '__main__':
