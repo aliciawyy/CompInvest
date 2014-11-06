@@ -3,6 +3,7 @@
 *.pdf
 *.Rhistory
 *.csv
+*.dat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
