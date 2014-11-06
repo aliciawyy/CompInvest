@@ -28,20 +28,20 @@ def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     ts_market = bolval['SPY']
     
     # Time stamps for the event range
-    ldt_timestamps = df_close.index    
+    ldt_timestamps = bolval.index    
     
-    df_events = copy.deepcopy(df_close)
+    df_events = copy.deepcopy(bolval)
     df_events = df_events * np.NAN   
     
     ref        = -2.0
-    market_ref =  1.0
+    market_ref =  1.3
     
     for s_sym in ls_symbols:
         for i in range(1, len(ldt_timestamps)):
             if bolval[s_sym][ldt_timestamps[i-1]] >= ref \
-               and bolval[s_sym][ldt_timestamps[i]] <= ref \
-               and ts_market[ldt_timestamps[i]] >= 1.0:
-                df_event[s_sym][ldt_timestamps[i]] = 1
+               and bolval[s_sym][ldt_timestamps[i]] < ref \
+               and ts_market[ldt_timestamps[i]] >= market_ref:
+                df_events[s_sym][ldt_timestamps[i]] = 1
     
     return df_events
 
@@ -62,8 +62,11 @@ def main():
     
     lookbackdates = 20
     
+    
+    print 'Start Looking for the events'
     df_events = BollingerEventTest(startd, endd, symbols12, lookbackdates)
     
+    print 'Start retrieving data from local Yahoo'
     d_data = GetDataLocalYahoo(startd, endd, symbols12)
     
     filename = "BollingerEventStudy12.9.pdf"

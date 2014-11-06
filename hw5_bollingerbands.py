@@ -61,7 +61,7 @@ def ComputeBollingerBands(ls_symbols, startdate, enddate, period, filename = '')
     
     
 ## ------------------------------------------------------------
-def main():
+def mainTest():
     '''Main Function'''
     ls_symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     startd     = dt.datetime(2010, 1,  1)
