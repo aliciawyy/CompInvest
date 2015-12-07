@@ -9,7 +9,8 @@ import numpy as np
 
 import pandas.io.data as web
 
-from load_ticker import load_cac40_names
+from io.load_ticker import load_cac40_names
+
 
 # -------------------------------------------------------
 def main():

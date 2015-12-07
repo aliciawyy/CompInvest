@@ -11,7 +11,9 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import numpy as np
 
-from load_data import load_stock_close_price
+from load.load_data import load_stock_close_price
+
+path = './result/'
 
 
 def get_portfolio_normalized_price(individual_stock_prices, ls_allocation):
@@ -103,7 +105,7 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
     if filename is None:
         plt.show()
     else:
-        plt.savefig(filename, format='pdf')
+        plt.savefig(path + filename, format='pdf')
 
 
 def test_valid_run():
@@ -121,7 +123,8 @@ def test_draw_portfolio_ref_compare():
     symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     ref_symbol = '^GSPC'
     plot_portfolio_vs_referance(dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31),
-                                symbols, [0.4, 0.4, 0.0, 0.2], ref_symbol)
+                                symbols, [0.4, 0.4, 0.0, 0.2], ref_symbol,
+                                filename='small_portforlio.pdf')
 
 
 def test_best_allocation():
@@ -167,3 +170,4 @@ def test_best_allocation():
 if __name__ == '__main__':
     test_valid_run()
     test_draw_portfolio_ref_compare()
+

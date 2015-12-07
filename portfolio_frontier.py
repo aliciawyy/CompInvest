@@ -13,8 +13,8 @@ import datetime as dt
 import numpy as np
 import matplotlib.pyplot as plt
 
-from load_ticker import load_cac40_names
-from load_data import load_stock_close_price
+from load.load_ticker import load_cac40_names
+from load.load_data import load_stock_close_price
 from portfolio_analyzer import get_daily_return0, plot_portfolio_vs_referance
 
 
@@ -147,4 +147,4 @@ def test_cac40_portfolio():
 
 if __name__ == '__main__':
     test_small_portfolio()
-    #test_cac40_portfolio()
+    # test_cac40_portfolio()

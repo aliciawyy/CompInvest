@@ -1,28 +1,22 @@
-'''
+"""
 Event study of the bollinger band
 
 @author Alicia Wang
 @date 5 novembre 2014
-'''
+"""
 
 # QSTK Imports
-import QSTK.qstkutil.qsdateutil as du
-import QSTK.qstkutil.tsutil as tsu
-import QSTK.qstkutil.DataAccess as da
 import QSTK.qstkstudy.EventProfiler as ep
-
+import QSTK.qstkutil.DataAccess as da
 # Third Party Imports
 import datetime as dt
-import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
 import copy
-from pandas import DataFrame
-
 # Internal Imports
-from load_local_data import load_local_data_from_yahoo
+from load.load_local_data import load_local_data_from_yahoo
 from hw5_bollingerbands import ComputeBollingerBands
-from hw4_tradinggen import GenerateTradingWithEvents, AddOrder
+from hw4_tradinggen import GenerateTradingWithEvents
+
 
 def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     

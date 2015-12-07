@@ -1,30 +1,30 @@
-'''
+"""
 This is a market simulation tool which takes an input .csv file for the orders
 and gives an .csv value as output.
 
 This program will be launched as following
 
  $ python hw3_marketsim.py 1000000 orders.csv values.csv
- 
-Where the number represents starting cash and orders.csv is a file of orders. 
+
+Where the number represents starting cash and orders.csv is a file of orders.
 
 
 @author Alicia Wang
 @date 15 oct 2014
-'''
+"""
 
 # Third Party Imports
-import datetime as dt
-import sys
-import csv
 import copy
+import csv
+import datetime as dt
 import numpy as np
+import sys
 
 from pandas import Series, DataFrame
-from load_local_data import load_local_data_from_yahoo
+
+from load.load_local_data import load_local_data_from_yahoo
 
 
-#-------------------------------------------------------------------------
 def ReadOrders(filename):
     reader = csv.reader(open(filename, 'rU'), delimiter = ',')
     

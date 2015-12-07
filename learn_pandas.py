@@ -1,9 +1,9 @@
-'''
+"""
 Note of learning pandas
 
 @author Alicia Wang
 @date 4 oct 2014
-'''
+"""
 
 from pandas import Series, DataFrame
 import pandas as pd

@@ -1,25 +1,20 @@
-'''
+"""
 This is a learning version of the homework II - The Event Profiler
 @author Alicia Wang
 @date 5 oct 2014
-'''
+"""
 
 # QSTK Imports
-import QSTK.qstkutil.qsdateutil as du
-import QSTK.qstkutil.tsutil as tsu
-import QSTK.qstkutil.DataAccess as da
 import QSTK.qstkstudy.EventProfiler as ep
+import QSTK.qstkutil.DataAccess as da
 
 # Third Party Imports
 import datetime as dt
-import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
 import copy
 
-from load_local_data import load_local_data_from_yahoo
+from load.load_local_data import load_local_data_from_yahoo
 
-## ------------------------------------------------------------
 def find_events(ls_symbols, d_data):
     ''' Finding the event dataframe '''
     
@@ -46,7 +41,7 @@ def find_events(ls_symbols, d_data):
 
     return df_events    
 
-## ------------------------------------------------------------
+
 def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
     
     d_data = load_local_data_from_yahoo(startd, endd, ls_symbols)
@@ -61,7 +56,6 @@ def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
                 b_errorbars = True, s_market_sym='SPY')    
 
 
-## ------------------------------------------------------------
 def main():
     '''Main Function'''
     

@@ -1,26 +1,17 @@
-'''
+"""
 This is a learning version of the homework IV - The trading generator
 @author Alicia Wang
 @date 19 oct 2014
-'''
+"""
 
 # QSTK Imports
-import QSTK.qstkutil.qsdateutil as du
-import QSTK.qstkutil.tsutil as tsu
 import QSTK.qstkutil.DataAccess as da
-import QSTK.qstkstudy.EventProfiler as ep
-
 # Third Party Imports
 import datetime as dt
-import matplotlib.pyplot as plt
 from pandas import DataFrame
-import pandas as pd
-import numpy as np
-import copy
+from load.load_local_data import load_local_data_from_yahoo
 
-from load_local_data import load_local_data_from_yahoo
 
-## ------------------------------------------------------------
 def AddOrder(df, date, symbol, transaction, number):
     dic = { df.columns[0]: date.year,
             df.columns[1]: date.month,
@@ -30,8 +21,8 @@ def AddOrder(df, date, symbol, transaction, number):
             df.columns[5]: number }
     df = df.append(dic, ignore_index = True)
     return df
-    
-## ------------------------------------------------------------
+
+
 def GenerateTradingbyEvents(ls_symbols, d_data):
     df_close = d_data['actual_close']
     
@@ -56,7 +47,7 @@ def GenerateTradingbyEvents(ls_symbols, d_data):
                 
     return df_event_trading
 
-## ------------------------------------------------------------
+
 def GenerateTradingWithEvents(df_events):
     df_event_trading = DataFrame(columns = ["year", "month", "day", 
                                             "symbol", "transaction", "number"])   
@@ -70,10 +61,9 @@ def GenerateTradingWithEvents(df_events):
                 
     return df_event_trading
                 
-    
-## ------------------------------------------------------------
-def mainTest():
-    '''Main Function'''
+
+def main():
+    """Main Function"""
     
     dataobj = da.DataAccess('Yahoo')
     
@@ -92,7 +82,6 @@ def mainTest():
     
     df_event_trading.to_csv("orders10d.csv", index = False, header = False)
     
-    
-## ------------------------------------------------------------
+
 if __name__ == '__main__':
     main()

@@ -1,22 +1,21 @@
-'''
+"""
 This file contains the function to compute the bollinger bands
 for a certain symbole.
 
 @author Alicia Wang
 @date 30 oct 2014
-'''
+"""
 # Third Party Imports
 import datetime as dt
-import numpy as np
-import matplotlib.pyplot as plt
 
-from pandas import DataFrame, Series
+import matplotlib.pyplot as plt
 import pandas.stats.moments as ts
+from pandas import DataFrame
 
 # Internal Imports
-from load_local_data import load_local_data_from_yahoo
+from load.load_local_data import load_local_data_from_yahoo
 
-## ------------------------------------------------------------
+
 def ComputeBollingerBands(ls_symbols, startdate, enddate, period, filename = ''):
     
     # Get the data from local repository

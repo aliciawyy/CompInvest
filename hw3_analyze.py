@@ -1,4 +1,4 @@
-'''
+"""
 This file contains the function to compare the performance of a portfolio with
 a reference. It will be called like
 
@@ -6,26 +6,23 @@ a reference. It will be called like
  
 @author Alicia Wang
 @date 15 oct 2014
-'''
+"""
 
-from pandas import Series, DataFrame
-from load_local_data import load_local_data_from_yahoo
-
-import sys
-import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import datetime as dt
+import sys
 from dateutil.parser import parse
 
 import QSTK.qstkutil.tsutil as tsu
+import matplotlib.pyplot as plt
+import pandas as pd
+
+from load.load_local_data import load_local_data_from_yahoo
 
 
-## ------------------------------------------------------------
 def Analyze(input_file, ref_symbol):
     
     # Load the portfolio value from the input file
-    portfolio = pd.read_csv(input_file, index_col = 'date')
+    portfolio = pd.read_csv(input_file, index_col='date')
     
     print 'Details of the Performance of the portfolio with the reference ',
     print ref_symbol
@@ -101,9 +98,9 @@ def Analyze(input_file, ref_symbol):
     print 'Sharpe Ratio of Fund : ', sharpe_port
     print 'Sharpe Ratio of ', ref_symbol, ' : ', sharpe_ref
 
-## ------------------------------------------------------------
+
 def main(argv):
-    '''Main function'''
+    """Main function"""
         
     # file containing the values of the portfolio
     input_file  = sys.argv[1]
@@ -114,7 +111,5 @@ def main(argv):
     Analyze(input_file, ref_symbol)
 
 
-## ------------------------------------------------------------
 if __name__ == '__main__':
     main(sys.argv[1:])
-    
