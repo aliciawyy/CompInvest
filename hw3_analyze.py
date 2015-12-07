@@ -9,7 +9,7 @@ a reference. It will be called like
 '''
 
 from pandas import Series, DataFrame
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 
 import sys
 import pandas as pd
@@ -40,9 +40,9 @@ def Analyze(input_file, ref_symbol):
         dates.append(parse(portfolio.index[i]))
         
     # Load the value of the reference data
-    ref_data = GetDataLocalYahoo(dates[0], 
-                                 dates[-1],
-                                 [ref_symbol])    
+    ref_data = load_local_data_from_yahoo(dates[0],
+                                          dates[-1],
+                                          [ref_symbol])
 
     # Normalizing the prices   
     port_norm = portfolio.values[:]/portfolio.values[0]

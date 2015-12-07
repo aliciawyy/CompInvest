@@ -9,11 +9,11 @@ import numpy as np
 
 import pandas.io.data as web
 
-from LoadTicker import LoadCAC40
+from load_ticker import load_cac40_names
 
 # -------------------------------------------------------
 def main():
-    cac40_orig  = LoadCAC40()
+    cac40_orig  = load_cac40_names()
     cac40_modif = cac40_orig.drop(['SAN.PA', 'UL.PA', 'ML.PA'])
     ref_symbol  = '^FCHI'
     

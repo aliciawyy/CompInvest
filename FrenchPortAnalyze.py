@@ -16,7 +16,7 @@ import pandas as pd
 import numpy as np
 import pandas.io.data as web
 
-from PortfolioOptimizerSharpr import PortfolioOptimizer
+from portfolio_optimizer import optimize
 
 # Global variables
 source = 'yahoo' # 'yahoo', 'google', 'local'
@@ -34,7 +34,7 @@ ndays = 252
 # ----------------------------------------------------------------------------
 def simulate(startdate, enddate, ls_symbols, ls_allocation, print_opt = False):
     '''
-    This function simulate the portfolio behavior between the
+    This function analyze the portfolio behavior between the
     startdate and the enddate, it takes four params as following
     
     @param startdate
@@ -122,7 +122,7 @@ def main():
     
     ref_symbol = '^FCHI' # CAC 40
     
-    PortfolioOptimizer(startd, endd, symbols, ref_symbol, filename = "portfoliovCAC40.pdf")
+    optimize(startd, endd, symbols, ref_symbol, filename ="portfoliovCAC40.pdf")
     
 if __name__ == '__main__':
     main()

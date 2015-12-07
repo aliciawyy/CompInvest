@@ -20,7 +20,7 @@ import copy
 from pandas import DataFrame
 
 # Internal Imports
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 from hw5_bollingerbands import ComputeBollingerBands
 from hw4_tradinggen import GenerateTradingWithEvents, AddOrder
 
@@ -69,7 +69,7 @@ def main():
     df_events = BollingerEventTest(startd, endd, symbols12, lookbackdates)
     
     print 'Start retrieving data from local Yahoo'
-    d_data = GetDataLocalYahoo(startd, endd, symbols12)
+    d_data = load_local_data_from_yahoo(startd, endd, symbols12)
     
     filename = "BollingerEventStudy12.9.pdf"
     

@@ -18,7 +18,7 @@ import pandas as pd
 import numpy as np
 import copy
 
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 
 ## ------------------------------------------------------------
 def AddOrder(df, date, symbol, transaction, number):
@@ -86,7 +86,7 @@ def mainTest():
     endd   = dt.datetime(2009, 12, 31)   
 
     # Get the data from the source of Yahoo (Local store in this example)
-    d_data = GetDataLocalYahoo(startd, endd, ls_symbols)
+    d_data = load_local_data_from_yahoo(startd, endd, ls_symbols)
     
     df_event_trading = GenerateTradingbyEvents(ls_symbols, d_data)
     

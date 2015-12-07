@@ -17,7 +17,7 @@ import pandas as pd
 import numpy as np
 import copy
 
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 
 ## ------------------------------------------------------------
 def find_events(ls_symbols, d_data):
@@ -49,7 +49,7 @@ def find_events(ls_symbols, d_data):
 ## ------------------------------------------------------------
 def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
     
-    d_data = GetDataLocalYahoo(startd, endd, ls_symbols)
+    d_data = load_local_data_from_yahoo(startd, endd, ls_symbols)
     
     df_events = find_events(ls_symbols, d_data)
     

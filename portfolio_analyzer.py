@@ -25,6 +25,11 @@ def get_portfolio_normalized_price(individual_stock_prices, ls_allocation):
     return portfolio_normalized_price
 
 
+def get_daily_return0(stock_normalized_prices):
+    tmp = stock_normalized_prices.copy()
+    return tsu.returnize0(tmp)
+
+
 def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', debug = False):
     """
     This function analyze the portfolio behavior between the
@@ -55,8 +60,7 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
     stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols, source)
 
     ls_port = get_portfolio_normalized_price(stock_close_prices.values, ls_allocation)
-    ls_portrets = ls_port.copy()
-    daily_return = tsu.returnize0(ls_portrets)
+    daily_return = get_daily_return0(ls_port)
 
     volatility = np.std(daily_return)
     average_daily_ret = np.average(daily_return)
@@ -82,15 +86,16 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
     """
 
     stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols)
-    ref_close_price = load_stock_close_price(start_date, end_date, [ref_symbol])
 
     ls_port = get_portfolio_normalized_price(stock_close_prices.values, ls_allocation)
-    ref_normalized_price = get_portfolio_normalized_price(ref_close_price.values, [1])
+
+    ref_close_price = load_stock_close_price(start_date, end_date, [ref_symbol])
+    ref_normalized_price = ref_close_price.values / ref_close_price.values[0, :]
 
     # Plot the prices with x-axis=timestamps
     plt.clf()
     plt.plot(stock_close_prices.index, ls_port)
-    plt.plot(stock_close_prices.index, ref_normalized_price)
+    plt.plot(ref_close_price.index, ref_normalized_price)
     plt.legend(['Portfolio', ref_symbol])
     plt.ylabel('Normalized Close Price')
     plt.xlabel('Date')

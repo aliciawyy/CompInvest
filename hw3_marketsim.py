@@ -21,7 +21,7 @@ import copy
 import numpy as np
 
 from pandas import Series, DataFrame
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 
 
 #-------------------------------------------------------------------------
@@ -73,7 +73,7 @@ def main(argv):
     
     startdate = unique_dates[0]
     enddate   = unique_dates[-1] + dt.timedelta(days = 1)
-    price_matrix = GetDataLocalYahoo(startdate, enddate, unique_symbols)
+    price_matrix = load_local_data_from_yahoo(startdate, enddate, unique_symbols)
     
     # Get the price data of the symbols
     price_frame = DataFrame(price_matrix['close'], columns = unique_symbols)

@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2c928c1-addd-475b-9c5b-73eda0975b8a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/CompInvest.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/load_data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portfolio_analyzer.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hw1_portfolioanalyze.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/GetDataLocal.py" afterPath="$PROJECT_DIR$/load_local_data.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LoadTicker.py" afterPath="$PROJECT_DIR$/load_ticker.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/portfolio_frontier.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/PortfolioFrontier.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/PortfolioOptimizerSharpr.py" afterPath="$PROJECT_DIR$/portfolio_optimizer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrenchPortAnalyze.py" afterPath="$PROJECT_DIR$/FrenchPortAnalyze.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PortfolioFrontier.py" afterPath="$PROJECT_DIR$/PortfolioFrontier.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PortfolioOptimizerSharpr.py" afterPath="$PROJECT_DIR$/PortfolioOptimizerSharpr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TargetPortfolioTest.py" afterPath="$PROJECT_DIR$/TargetPortfolioTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_eventprofiler.py" afterPath="$PROJECT_DIR$/hw2_eventprofiler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw3_analyze.py" afterPath="$PROJECT_DIR$/hw3_analyze.py" />
@@ -23,6 +14,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4_tradinggen.py" afterPath="$PROJECT_DIR$/hw4_tradinggen.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw5_bollingerbands.py" afterPath="$PROJECT_DIR$/hw5_bollingerbands.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw6_eventstudybollinger.py" afterPath="$PROJECT_DIR$/hw6_eventstudybollinger.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load_ticker.py" afterPath="$PROJECT_DIR$/load_ticker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portfolio_analyzer.py" afterPath="$PROJECT_DIR$/portfolio_analyzer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tuto2_correlationanalysis.py" afterPath="$PROJECT_DIR$/tuto2_correlationanalysis.py" />
     </list>
     <ignored path="CompInvest.iws" />
@@ -48,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/load_ticker.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="10" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="10" />
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding>
                 <element signature="e#105#124#0" expanded="true" />
               </folding>
@@ -56,21 +49,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="portfolio_analyzer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="portfolio_analyzer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portfolio_analyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.7913384">
-              <caret line="160" column="18" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="80" selection-start-line="91" selection-start-column="4" selection-end-line="92" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tsutil.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python2.7/dist-packages/QSTK-0.2.8-py2.7.egg/QSTK/qstkutil/tsutil.py">
+      <file leaf-file-name="portfolio_frontier.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portfolio_frontier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.8740157">
+              <caret line="112" column="62" selection-start-line="112" selection-start-column="62" selection-end-line="112" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrenchPortAnalyze.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrenchPortAnalyze.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="129" column="4" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
+              <caret line="124" column="12" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="portfolio_optimizer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portfolio_optimizer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -112,12 +125,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/LoadTicker.py" />
-        <option value="$PROJECT_DIR$/load_ticker.py" />
         <option value="$PROJECT_DIR$/load_data" />
         <option value="$PROJECT_DIR$/load_data.py" />
         <option value="$PROJECT_DIR$/load_local_data.py" />
         <option value="$PROJECT_DIR$/hw1_portfolioanalyze.py" />
+        <option value="$PROJECT_DIR$/PortfolioOptimizerSharpr.py" />
+        <option value="$PROJECT_DIR$/load_ticker.py" />
         <option value="$PROJECT_DIR$/portfolio_analyzer.py" />
+        <option value="$PROJECT_DIR$/portfolio_optimizer.py" />
+        <option value="$PROJECT_DIR$/PortfolioFrontier.py" />
+        <option value="$PROJECT_DIR$/portfolio_frontier.py" />
       </list>
     </option>
   </component>
@@ -180,7 +197,7 @@
       <pane id="Scratches" />
     </panes>
   </component>
-  <component name="RunManager" selected="Python.hw1_portfolioanalyze">
+  <component name="RunManager" selected="Python.portfolio_frontier">
     <configuration default="false" name="load_local_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -228,6 +245,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_analyzer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="portfolio_optimizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CompInvest" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_optimizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="portfolio_frontier" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CompInvest" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_frontier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -371,17 +422,21 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.load_ticker" />
       <item index="1" class="java.lang.String" itemvalue="Python.load_local_data" />
       <item index="2" class="java.lang.String" itemvalue="Python.load_data" />
       <item index="3" class="java.lang.String" itemvalue="Python.hw1_portfolioanalyze" />
+      <item index="4" class="java.lang.String" itemvalue="Python.portfolio_optimizer" />
+      <item index="5" class="java.lang.String" itemvalue="Python.portfolio_frontier" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.hw1_portfolioanalyze" />
-        <item index="1" class="java.lang.String" itemvalue="Python.load_data" />
-        <item index="2" class="java.lang.String" itemvalue="Python.load_local_data" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.portfolio_frontier" />
+        <item index="1" class="java.lang.String" itemvalue="Python.portfolio_optimizer" />
+        <item index="2" class="java.lang.String" itemvalue="Python.hw1_portfolioanalyze" />
+        <item index="3" class="java.lang.String" itemvalue="Python.load_data" />
+        <item index="4" class="java.lang.String" itemvalue="Python.load_local_data" />
       </list>
     </recent_temporary>
   </component>
@@ -402,21 +457,21 @@
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2468828" sideWeight="0.495114" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2495114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.49771988" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.86188924" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.13811074" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -506,20 +561,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/load_local_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrenchPortAnalyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="12" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/load_ticker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="10" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="10" />
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding>
             <element signature="e#105#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_local_data.py">
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/QSTK-0.2.8-py2.7.egg/QSTK/qstkutil/tsutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.33267716">
+          <caret line="548" column="4" selection-start-line="548" selection-start-column="4" selection-end-line="548" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -534,18 +605,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/QSTK-0.2.8-py2.7.egg/QSTK/qstkutil/tsutil.py">
+    <entry file="file://$PROJECT_DIR$/portfolio_optimizer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="4" selection-start-line="129" selection-start-column="4" selection-end-line="129" selection-end-column="4" />
+          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portfolio_analyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.7913384">
-          <caret line="160" column="18" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="80" selection-start-line="91" selection-start-column="4" selection-end-line="92" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portfolio_frontier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8740157">
+          <caret line="112" column="62" selection-start-line="112" selection-start-column="62" selection-end-line="112" selection-end-column="62" />
           <folding />
         </state>
       </provider>

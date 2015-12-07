@@ -13,7 +13,7 @@ def load_ticker_list(filename):
     return ticker_list
 
 
-def load_cac40():
+def load_cac40_names():
     """
     @return cac40 stored in a Series object with _Ticker_ as index
     and Equity's _Name_ as value
@@ -38,7 +38,7 @@ def load_cac40():
 
 
 def test():
-    cac40list = load_cac40()
+    cac40list = load_cac40_names()
     assert cac40list.size > 1
     print cac40list
 

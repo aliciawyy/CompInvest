@@ -14,13 +14,13 @@ from pandas import DataFrame, Series
 import pandas.stats.moments as ts
 
 # Internal Imports
-from GetDataLocal import GetDataLocalYahoo
+from load_local_data import load_local_data_from_yahoo
 
 ## ------------------------------------------------------------
 def ComputeBollingerBands(ls_symbols, startdate, enddate, period, filename = ''):
     
     # Get the data from local repository
-    d_data = GetDataLocalYahoo(startdate, enddate, ls_symbols)
+    d_data = load_local_data_from_yahoo(startdate, enddate, ls_symbols)
     
     print 'Symbol : ', ls_symbols
     print 'Start date : ', startdate
