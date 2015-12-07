@@ -79,7 +79,8 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
     return [volatility, average_daily_ret, sharpe, cum_ret]
 
 
-def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation, ref_symbol):
+def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation, ref_symbol,
+                                filename=None):
     """
     This function draws the portfolio in comparison with
     the reference
@@ -99,8 +100,10 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
     plt.legend(['Portfolio', ref_symbol])
     plt.ylabel('Normalized Close Price')
     plt.xlabel('Date')
-    plt.show()
-    # plt.savefig('normalizedPortfoliovReference.pdf', format='pdf')
+    if filename is None:
+        plt.show()
+    else:
+        plt.savefig(filename, format='pdf')
 
 
 def test_valid_run():
@@ -149,7 +152,7 @@ def test_best_allocation():
                 vol, daily_ret, sharpe, cum_ret = \
                     analyze(startd, endd, symbols, alloc)
 
-                if (sharpe > sharpe_max):
+                if sharpe > sharpe_max:
                     sharpe_max = sharpe
                     alloc_max = alloc[:]
 
