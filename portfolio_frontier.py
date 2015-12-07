@@ -12,25 +12,28 @@ import QSTK.qstkutil.tsutil as tsu
 import datetime as dt
 import numpy as np
 import matplotlib.pyplot as plt
+
 from load_ticker import load_cac40_names
 from load_data import load_stock_close_price
-from portfolio_analyzer import get_daily_return0
+from portfolio_analyzer import get_daily_return0, plot_portfolio_vs_referance
 
 
-def get_frontier(startdate, enddate, ls_symbols, ref_symbol,
+def get_frontier(start_date, end_date, ls_symbols, ref_symbol,
                  ls_names=[], filename="EquitiesvFrontier.pdf",
                  target_return=0.015):
     """
+    @param start_date: start date to draw the frontier
+    @param end_date: end date to draw the frontier
     @param ls_symbols candidates equities
     @param ls_names   candidates names
-    @param ref_symbol reference
+    @param ref_symbol reference symbol
     """
 
-    stock_close_price = load_stock_close_price(startdate, enddate, ls_symbols)
+    stock_close_price = load_stock_close_price(start_date, end_date, ls_symbols)
 
     stock_normalized_price = stock_close_price.values / stock_close_price.values[0, :]
 
-    ref_close_price = load_stock_close_price(startdate, enddate, [ref_symbol])
+    ref_close_price = load_stock_close_price(start_date, end_date, [ref_symbol])
     ref_normalized_price = ref_close_price.values / ref_close_price.values[0, :]
 
     daily_return0 = get_daily_return0(stock_normalized_price)
@@ -67,13 +70,15 @@ def get_frontier(startdate, enddate, ls_symbols, ref_symbol,
     print 'Optimized portfolio for target return', f_target
     print 'Volatility is ', f_std
 
+    if len(ls_names) == 0:
+        ls_names = ls_symbols
+
     for i in range(len(na_weights)):
         if abs(na_weights[i]) > 0.00001:
             print ls_names[i], ':', na_weights[i]
 
     plt.clf()
-
-    fig = plt.figure(figsize=(8, 10), dpi=100)
+    plt.figure(figsize=(8, 10), dpi=100)
 
     # Plot individual stock risk/return as green +
     for i in range(len(ls_symbols)):
@@ -96,26 +101,50 @@ def get_frontier(startdate, enddate, ls_symbols, ref_symbol,
     #    plt.legend(['2013 Frontier'], loc = 'lower left')
     plt.ylabel('Expected Return')
     plt.xlabel('StDev')
-    plt.savefig(filename, format='pdf')
+    if filename is None:
+        plt.show()
+    else:
+        plt.savefig(filename, format='pdf')
 
     return na_weights
 
 
-def test_cac40_portfolio():
-    # symbols = ['AIR.PA', 'LG.PA', 'GLE.PA', 'DG.PA']
-    ref_symbol = '^FCHI'
+def optimize(start_date, end_date, ls_symbols, ref_symbol,
+             filename="portfoliovCAC40.pdf", ls_names=[], target_return=0.02):
+    """
+    @param ls_symbols candidates equities
+    @param ref_symbol reference
 
-    endd = dt.datetime.today()
-    startd = endd - dt.timedelta(days=365 * 2)
+    @return alloc allocation of equities
+    """
+
+    optimized_allocation = get_frontier(start_date, end_date, ls_symbols, ref_symbol,
+                                        ls_names, filename, target_return)
+
+    plot_portfolio_vs_referance(start_date, end_date, ls_symbols,
+                                optimized_allocation, ref_symbol)
+
+
+def test_small_portfolio():
+    symbols = ["AIR.PA", "LG.PA", "GLE.PA", "DG.PA"]
+    ref_symbol = '^FCHI'
+    end_date = dt.datetime.today()
+    start_date = end_date - dt.timedelta(days=365)
+    optimize(start_date, end_date, symbols, ref_symbol, filename=None, target_return=0.012)
+
+
+def test_cac40_portfolio():
+    ref_symbol = '^FCHI'
+    end_date = dt.datetime.today()
+    start_date = end_date - dt.timedelta(days=365)
 
     cac40_orig = load_cac40_names()
+    cac40_modified = cac40_orig.drop(['SAN.PA', 'UL.PA', 'GSZ.PA'])
 
-    cac40_modif = cac40_orig.drop(['SAN.PA', 'UL.PA', 'GSZ.PA'])
-
-    get_frontier(startd, endd, cac40_modif.index, ref_symbol,
-                 filename="EquitiesvFrontier2015.pdf",
-                 ls_names=cac40_modif.values)
+    optimize(start_date, end_date, cac40_modified.index, ref_symbol,
+             filename="EquitiesvFrontier2015.pdf", ls_names=cac40_modified.index)
 
 
 if __name__ == '__main__':
-    test_cac40_portfolio()
+    test_small_portfolio()
+    #test_cac40_portfolio()

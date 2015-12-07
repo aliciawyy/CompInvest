@@ -58,9 +58,9 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
         print 'Allocations:', ls_allocation
 
     stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols, source)
-
-    ls_port = get_portfolio_normalized_price(stock_close_prices.values, ls_allocation)
-    daily_return = get_daily_return0(ls_port)
+    stock_normalized_prices = get_portfolio_normalized_price(stock_close_prices.values,
+                                                             ls_allocation)
+    daily_return = get_daily_return0(stock_normalized_prices)
 
     volatility = np.std(daily_return)
     average_daily_ret = np.average(daily_return)
@@ -68,7 +68,7 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
     # 252 trading days per year
     ndays = 252
     sharpe = average_daily_ret / volatility * np.sqrt(ndays)
-    cum_ret = ls_port[-1] / ls_port[0]
+    cum_ret = stock_normalized_prices[-1] / stock_normalized_prices[0]
 
     if debug:
         print 'Sharpe Ratio:', sharpe
