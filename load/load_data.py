@@ -4,14 +4,11 @@ load the data from internet through panda or load local data through
 QSTK for tests.
 @author Alice Wang
 """
-# Third Party Imports
-import datetime as dt
 import pandas.io.data as web
-
 from load_local_data import load_local_data_from_yahoo
 
 
-def load_stock_close_price(start_date, end_date, ls_symbols, source = 'yahoo'):
+def load_stock_close_price(start_date, end_date, ls_symbols, source='yahoo'):
     """
     @param start_date: start date of loading
     @param end_date: end date of loading
@@ -42,16 +39,3 @@ def load_stock_close_price(start_date, end_date, ls_symbols, source = 'yahoo'):
     stock_close_prices = stock_close_prices.fillna(1.0)
 
     return stock_close_prices
-
-
-def test():
-    start_date = dt.datetime(2011, 1, 1)
-    end_date = dt.datetime(2011, 12, 31)
-    ls_symbols = ['AAPL', 'GLD', 'XOM']
-    stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols, 'yahoo')
-    assert stock_close_prices.shape == (252, 3)
-    local_close_prices = load_stock_close_price(start_date, end_date, ls_symbols, 'local')
-    assert local_close_prices.shape == (252, 3)
-
-if __name__ == '__main__':
-    test()

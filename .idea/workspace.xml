@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2c928c1-addd-475b-9c5b-73eda0975b8a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/load/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FrenchPortAnalyze.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/load_data.py" afterPath="$PROJECT_DIR$/load/load_data.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/load_local_data.py" afterPath="$PROJECT_DIR$/load/load_local_data.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/load_ticker.py" afterPath="$PROJECT_DIR$/load/load_ticker.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/alicia.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/test_load.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_eventprofiler.py" afterPath="$PROJECT_DIR$/hw2_eventprofiler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw3_analyze.py" afterPath="$PROJECT_DIR$/hw3_analyze.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw3_marketsim.py" afterPath="$PROJECT_DIR$/hw3_marketsim.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw4_tradinggen.py" afterPath="$PROJECT_DIR$/hw4_tradinggen.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw5_bollingerbands.py" afterPath="$PROJECT_DIR$/hw5_bollingerbands.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw6_eventstudybollinger.py" afterPath="$PROJECT_DIR$/hw6_eventstudybollinger.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learn_pandas.py" afterPath="$PROJECT_DIR$/learn_pandas.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portfolio_analyzer.py" afterPath="$PROJECT_DIR$/portfolio_analyzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portfolio_frontier.py" afterPath="$PROJECT_DIR$/portfolio_frontier.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target_portfolio_test.py" afterPath="$PROJECT_DIR$/target_portfolio_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tuto2_correlationanalysis.py" afterPath="$PROJECT_DIR$/tuto2_correlationanalysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load/load_data.py" afterPath="$PROJECT_DIR$/load/load_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load/load_local_data.py" afterPath="$PROJECT_DIR$/load/load_local_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load/load_ticker.py" afterPath="$PROJECT_DIR$/load/load_ticker.py" />
     </list>
     <ignored path="CompInvest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,6 +28,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="load_ticker.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/load/load_ticker.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="e#105#124#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_load.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/test_load.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.08450704">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+              <folding>
+                <element signature="e#73#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="target_portfolio_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/target_portfolio_test.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,13 +64,45 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="portfolio_analyzer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portfolio_analyzer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="portfolio_frontier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portfolio_frontier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="load_local_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/load/load_local_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="e#93#130#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="load_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load/load_data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding>
-                <element signature="e#196#217#0" expanded="true" />
+                <element signature="e#174#202#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,74 +124,10 @@
         <entry file="file://$PROJECT_DIR$/hw3_analyze.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
               <folding>
                 <element signature="e#207#225#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw3_marketsim.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw3_marketsim.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw4_tradinggen.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw4_tradinggen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw5_bollingerbands.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw5_bollingerbands.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="e#155#176#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw6_eventstudybollinger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw6_eventstudybollinger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="learn_pandas.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/learn_pandas.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
-              <folding>
-                <element signature="e#71#107#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.037656903">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -158,6 +138,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Python Unit Test" />
       </list>
     </option>
   </component>
@@ -187,13 +168,18 @@
         <option value="$PROJECT_DIR$/portfolio_frontier.py" />
         <option value="$PROJECT_DIR$/target_portfolio_test.py" />
         <option value="$PROJECT_DIR$/hw2_eventprofiler.py" />
-        <option value="$PROJECT_DIR$/hw3_analyze.py" />
         <option value="$PROJECT_DIR$/hw3_marketsim.py" />
         <option value="$PROJECT_DIR$/hw4_tradinggen.py" />
         <option value="$PROJECT_DIR$/hw5_bollingerbands.py" />
         <option value="$PROJECT_DIR$/hw6_eventstudybollinger.py" />
         <option value="$PROJECT_DIR$/learn_pandas.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/hw3_analyze.py" />
+        <option value="$PROJECT_DIR$/load/test_load_ticker_list.py" />
+        <option value="$PROJECT_DIR$/load/load_ticker.py" />
+        <option value="$PROJECT_DIR$/load/load_local_data.py" />
+        <option value="$PROJECT_DIR$/load/load_data.py" />
+        <option value="$PROJECT_DIR$/tests/test_load.py" />
       </list>
     </option>
   </component>
@@ -202,6 +188,22 @@
     <option name="y" value="24" />
     <option name="width" value="1535" />
     <option name="height" value="876" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -260,7 +262,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="load" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,95 +272,115 @@
       <pane id="Scratches" />
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.postfix.templates" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/io" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.target_portfolio_test">
-    <configuration default="false" name="load_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python tests.Nosetests in tests (2)">
+    <configuration default="false" name="test_load" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/io/load_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_load.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="hw1_portfolioanalyze" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Nosetests in tests (4)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_analyzer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="portfolio_optimizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Nosetests in tests (5)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_optimizer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="portfolio_frontier" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Nosetests in tests (1)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/portfolio_frontier.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="target_portfolio_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="Nosetests in tests (2)" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
+      <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CompInvest" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/target_portfolio_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -500,27 +522,49 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <list size="6">
+    <configuration default="false" name="Nosetests in tests" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CompInvest" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Python.load_ticker" />
-      <item index="1" class="java.lang.String" itemvalue="Python.load_data" />
-      <item index="2" class="java.lang.String" itemvalue="Python.hw1_portfolioanalyze" />
-      <item index="3" class="java.lang.String" itemvalue="Python.portfolio_optimizer" />
-      <item index="4" class="java.lang.String" itemvalue="Python.portfolio_frontier" />
-      <item index="5" class="java.lang.String" itemvalue="Python.target_portfolio_test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test_load" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in tests" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (4)" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (5)" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (1)" />
+      <item index="6" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (2)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.target_portfolio_test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.load_data" />
-        <item index="2" class="java.lang.String" itemvalue="Python.portfolio_frontier" />
-        <item index="3" class="java.lang.String" itemvalue="Python.hw1_portfolioanalyze" />
-        <item index="4" class="java.lang.String" itemvalue="Python.portfolio_optimizer" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (2)" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (5)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_load" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in tests (4)" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -530,6 +574,38 @@
       <updated>1449493877379</updated>
     </task>
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Nosetests_in_tests_(1) - 2015.12.08 at 10h 26m 29s.xml">
+      <configuration name="Nosetests in tests (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(1) - 2015.12.08 at 10h 45m 59s.xml">
+      <configuration name="Nosetests in tests (1)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(2) - 2015.12.08 at 10h 28m 15s.xml">
+      <configuration name="Nosetests in tests (2)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(2) - 2015.12.08 at 10h 29m 18s.xml">
+      <configuration name="Nosetests in tests (2)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(2) - 2015.12.08 at 10h 48m 25s.xml">
+      <configuration name="Nosetests in tests (2)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(3) - 2015.12.08 at 10h 29m 25s.xml">
+      <configuration name="Nosetests in tests (3)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(3) - 2015.12.08 at 10h 32m 16s.xml">
+      <configuration name="Nosetests in tests (3)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(4) - 2015.12.08 at 10h 36m 58s.xml">
+      <configuration name="Nosetests in tests (4)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(4) - 2015.12.08 at 10h 38m 51s.xml">
+      <configuration name="Nosetests in tests (4)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_tests_(5) - 2015.12.08 at 10h 40m 25s.xml">
+      <configuration name="Nosetests in tests (5)" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1535" height="876" extended-state="6" />
@@ -541,11 +617,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2468828" sideWeight="0.495114" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2495114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.49771988" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.86188924" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990025" sideWeight="0.49771988" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917705" sideWeight="0.495114" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43142146" sideWeight="0.8" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917705" sideWeight="0.13811074" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43142146" sideWeight="0.2" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -608,7 +684,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding>
-            <element signature="e#196#217#0" expanded="true" />
+            <element signature="e#174#202#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -665,24 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load/load_local_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#93#130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portfolio_frontier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tuto1_QSTK.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -691,49 +749,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portfolio_analyzer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/load/load_ticker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21259843">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#105#124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/load/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/load/load_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding>
-            <element signature="e#196#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target_portfolio_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding>
-            <element signature="e#21#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -747,46 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_analyze.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding>
-            <element signature="e#207#225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3_marketsim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw4_tradinggen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw5_bollingerbands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#155#176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw6_eventstudybollinger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.037656903">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -801,11 +785,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/hw6_eventstudybollinger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037656903">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.496063">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw5_bollingerbands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4606299">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#155#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw4_tradinggen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2322834">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_marketsim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8503937">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3_analyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
+          <folding>
+            <element signature="e#207#225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portfolio_analyzer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load/load_ticker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#105#124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portfolio_frontier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load/load_local_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#93#130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load/load_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#174#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target_portfolio_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+          <folding>
+            <element signature="e#21#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08450704">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding>
+            <element signature="e#73#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

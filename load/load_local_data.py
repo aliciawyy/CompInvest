@@ -41,14 +41,3 @@ def load_local_data(ldt_timestamps, ls_symbols, source = 'Yahoo'):
         d_data[s_key] = d_data[s_key].fillna(1.0)
 
     return d_data
-
-
-def test():
-    start_date = dt.datetime(2011, 1, 1)
-    end_date = dt.datetime(2011, 12, 31)
-    ls_symbols = ['AAPL', 'GLD', 'GOOG', 'XOM']
-    local_data = load_local_data_from_yahoo(start_date, end_date, ls_symbols)
-    assert local_data['close'].shape == (252, 4)
-
-if __name__ == '__main__':
-    test()
