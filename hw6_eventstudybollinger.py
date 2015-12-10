@@ -29,7 +29,7 @@ def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     df_events = copy.deepcopy(bolval)
     df_events = df_events * np.NAN   
     
-    ref        = -2.0
+    ref = -2.0
     market_ref =  1.4
     
     for s_sym in ls_symbols:
@@ -41,8 +41,7 @@ def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
 
     return df_events
 
-         
-#-----------------------------------------------------------
+
 def main():
     '''main function'''
     
@@ -75,6 +74,6 @@ def main():
     df_event_trading = GenerateTradingWithEvents(df_events)
     df_event_trading.to_csv("ordersbollinger5d.csv", index = False, header = False)
 
-#-----------------------------------------------------------
+
 if __name__ == '__main__':
     main()
