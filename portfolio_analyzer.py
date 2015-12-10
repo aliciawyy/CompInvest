@@ -106,17 +106,6 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
         plt.savefig(path + filename, format='pdf')
 
 
-def test_valid_run():
-    vol, ave_daily_ret, sharpe, cum_ret = \
-        analyze(dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31),
-                ['AAPL', 'GLD', 'GOOG', 'XOM'], [0.4, 0.4, 0.0, 0.2], debug=True)
-    eps = 0.1
-    assert abs(vol - 0.0072) * 100 < eps
-    assert abs(sharpe - 1.24026) * 100 < eps
-    assert abs(ave_daily_ret - 0.000567856) * 10000 < eps
-    assert abs(cum_ret - 1.146150) * 10000 < eps
-
-
 def test_draw_portfolio_ref_compare():
     symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     ref_symbol = '^GSPC'

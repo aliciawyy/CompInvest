@@ -10,3 +10,6 @@ It mainly includes tools of
 * Event profiler
 
 The code is on refactoring ... 10 Dec 2015
+
+All the unit tests will be ranged in the repository tests, and a .git/hooks/pre-commit will be set
+to run all the tests which are not tagged as "slow" before each commit.
