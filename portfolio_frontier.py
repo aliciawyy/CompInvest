@@ -13,7 +13,7 @@ import datetime as dt
 import numpy as np
 import matplotlib.pyplot as plt
 
-from load.load_ticker import load_cac40_names
+from load.load_ticker import load_valid_cac40_names
 from load.load_data import load_stock_close_price
 from portfolio_analyzer import get_daily_return0, plot_portfolio_vs_referance
 
@@ -138,10 +138,9 @@ def test_cac40_portfolio():
     end_date = dt.datetime.today()
     start_date = end_date - dt.timedelta(days=365)
 
-    cac40_orig = load_cac40_names()
-    cac40_modified = cac40_orig.drop(['SAN.PA', 'UL.PA', 'GSZ.PA'])
+    cac40_names = load_valid_cac40_names()
 
-    optimize(start_date, end_date, cac40_modified.index, ref_symbol,
+    optimize(start_date, end_date, cac40_names.index, ref_symbol,
              filename="EquitiesvFrontier2015.pdf", ls_names=cac40_modified.index)
 
 

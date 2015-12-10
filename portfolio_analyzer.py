@@ -10,10 +10,7 @@ import QSTK.qstkutil.tsutil as tsu
 import datetime as dt
 import matplotlib.pyplot as plt
 import numpy as np
-
 from load.load_data import load_stock_close_price
-
-path = './result/'
 
 
 def get_portfolio_normalized_price(individual_stock_prices, ls_allocation):
@@ -32,10 +29,10 @@ def get_daily_return0(stock_normalized_prices):
     return tsu.returnize0(tmp)
 
 
-def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', debug = False):
+def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', debug=False):
     """
     This function analyze the portfolio behavior between the
-    startdate and the enddate, it takes four params as following
+    start_date and the endd_ate, it takes four params as following
 
     @param start_date
     @param end_date
@@ -105,13 +102,14 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
     if filename is None:
         plt.show()
     else:
+        path = './result/'
         plt.savefig(path + filename, format='pdf')
 
 
 def test_valid_run():
     vol, ave_daily_ret, sharpe, cum_ret = \
-    analyze(dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31),
-            ['AAPL', 'GLD', 'GOOG', 'XOM'], [0.4, 0.4, 0.0, 0.2], debug=True)
+        analyze(dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31),
+                ['AAPL', 'GLD', 'GOOG', 'XOM'], [0.4, 0.4, 0.0, 0.2], debug=True)
     eps = 0.1
     assert abs(vol - 0.0072) * 100 < eps
     assert abs(sharpe - 1.24026) * 100 < eps
@@ -170,4 +168,3 @@ def test_best_allocation():
 if __name__ == '__main__':
     test_valid_run()
     test_draw_portfolio_ref_compare()
-

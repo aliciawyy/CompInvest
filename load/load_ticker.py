@@ -4,6 +4,7 @@ This file contains the functions to load lists of tickers.
 @author Alicia Wang
 @date 4 oct 2014
 """
+import os
 import pandas as pd
 from pandas import Series
 
@@ -16,6 +17,7 @@ def load_ticker_list(filename):
         ticker_list = pd.read_csv(filename, header=False, sep='\t')
     except IOError:
         print 'cannot read csv file at: ', filename
+        return
     return ticker_list
 
 
@@ -25,7 +27,7 @@ def load_cac40_names():
     and Equity's _Name_ as value
     """
 
-    filename = '../data/cac40.csv'
+    filename = os.getcwd() + '/data/cac40.csv'
 
     print '[info]Load the CAC 40 List from ', filename
 
@@ -41,3 +43,12 @@ def load_cac40_names():
     cac40.name = 'Name'
 
     return cac40
+
+
+def load_valid_cac40_names():
+    """
+    Only load the cac40 names possible to retrieve data for the current year
+    """
+    cac40 = load_cac40_names()
+    cac40_valid = cac40.drop(['GSZ.PA', 'UL.PA'])
+    return cac40_valid

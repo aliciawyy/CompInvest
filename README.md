@@ -8,3 +8,5 @@ It mainly includes tools of
 * Portfolio analyzer and optimizer
 * Market similator for backtesting
 * Event profiler
+
+The code is on refactoring ... 10 Dec 2015
