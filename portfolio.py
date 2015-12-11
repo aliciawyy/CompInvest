@@ -92,8 +92,7 @@ class BasicPortfolio(object):
         if filename is None:
             plt.show()
         else:
-            path = './result/'
-            plt.savefig(path + filename, format='pdf')
+            plt.savefig(filename, format='pdf')
 
     def analyze(self, allocation, source='yahoo', debug=False):
         """

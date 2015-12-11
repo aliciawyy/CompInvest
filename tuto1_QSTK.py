@@ -1,9 +1,9 @@
-'''
+"""
 This is the code to learn QSTK
 
 @author: Alicia Wang
 @date: 3 Oct 2014
-'''
+"""
 
 # QSTK Imports
 import QSTK.qstkutil.qsdateutil as du

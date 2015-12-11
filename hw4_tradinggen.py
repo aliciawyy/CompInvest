@@ -80,7 +80,7 @@ def main():
     
     df_event_trading = GenerateTradingbyEvents(ls_symbols, d_data)
     
-    df_event_trading.to_csv("orders10d.csv", index = False, header = False)
+    df_event_trading.to_csv("orders10d.csv", index=False, header=False)
     
 
 if __name__ == '__main__':

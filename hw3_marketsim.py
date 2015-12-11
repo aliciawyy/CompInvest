@@ -95,12 +95,7 @@ def main(argv):
     trade_frame['_cash'] = cashflow
     
     hold_frame = np.cumsum(trade_frame, axis=0)
-    
-#    print hold_frame
-
     portfolio = np.sum(hold_frame * price_frame, axis=1)
-    
-#    print portfolio
 
     portfolio.index.name = 'date'
     portfolio.name = 'value'
