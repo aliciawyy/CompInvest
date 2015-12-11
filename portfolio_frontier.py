@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 from load.load_ticker import load_valid_cac40_names
 from load.load_data import load_stock_close_price
-from portfolio_analyzer import get_daily_return0, plot_portfolio_vs_referance
+from portfolio_analyzer import get_daily_return0
 from portfolio import BasicPortfolio
 
 
@@ -31,7 +31,8 @@ def get_frontier(basic_portfolio, ref_symbol, filename="EquitiesvFrontier.pdf",
 
     stock_normalized_price = stock_close_price.values / stock_close_price.values[0, :]
 
-    ref_close_price = load_stock_close_price(start_date, end_date, [ref_symbol])
+    ref_close_price = load_stock_close_price(basic_portfolio.start_date,
+                                             basic_portfolio.end_date, [ref_symbol])
     ref_normalized_price = ref_close_price.values / ref_close_price.values[0, :]
 
     daily_return0 = get_daily_return0(stock_normalized_price)
@@ -104,20 +105,17 @@ def get_frontier(basic_portfolio, ref_symbol, filename="EquitiesvFrontier.pdf",
     return na_weights
 
 
-def optimize(start_date, end_date, ls_symbols, ref_symbol,
-             filename="portfoliovCAC40.pdf", ls_names=[], target_return=0.02):
+def optimize(basic_portfolio, ref_symbol, filename="portfoliovCAC40.pdf", target_return=0.02):
     """
-    @param ls_symbols candidates equities
+    @param basic_portfolio: Basic portfolio
     @param ref_symbol reference
 
     @return alloc allocation of equities
     """
 
-    optimized_allocation = get_frontier(basic_portfolio, ref_symbol,
-                                        ls_names, filename, target_return)
+    optimized_allocation = get_frontier(basic_portfolio, ref_symbol, filename, target_return)
 
-    plot_portfolio_vs_referance(start_date, end_date, ls_symbols,
-                                optimized_allocation, ref_symbol)
+    basic_portfolio.plot_with_reference(optimized_allocation, ref_symbol)
 
 
 def test_small_portfolio():
@@ -125,18 +123,18 @@ def test_small_portfolio():
     ref_symbol = '^FCHI'
     end_date = dt.datetime.today()
     start_date = end_date - dt.timedelta(days=365)
-    optimize(start_date, end_date, symbols, ref_symbol, filename=None, target_return=0.012)
+    basic_portfolio = BasicPortfolio(symbols, start_date, end_date)
+    optimize(basic_portfolio, ref_symbol, filename=None, target_return=0.012)
 
 
 def test_cac40_portfolio():
     ref_symbol = '^FCHI'
     end_date = dt.datetime.today()
     start_date = end_date - dt.timedelta(days=365)
+    cac40 = load_valid_cac40_names()
+    basic_portfolio = BasicPortfolio(cac40.index, start_date, end_date, cac40.values)
 
-    cac40_names = load_valid_cac40_names()
-
-    optimize(start_date, end_date, cac40_names.index, ref_symbol,
-             filename="EquitiesvFrontier2015.pdf", ls_names=cac40_modified.index)
+    optimize(basic_portfolio, ref_symbol, filename="EquitiesvFrontier2015.pdf")
 
 
 if __name__ == '__main__':

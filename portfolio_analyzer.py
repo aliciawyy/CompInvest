@@ -6,28 +6,8 @@ of portfolio.
 """
 import QSTK.qstkutil.tsutil as tsu
 import datetime as dt
-import matplotlib.pyplot as plt
 import numpy as np
-from load.load_data import load_stock_close_price
 from portfolio import BasicPortfolio
-
-
-def get_portfolio_normalized_price(individual_stock_prices, ls_allocation):
-    """
-    @param individual_stock_prices: list of individual stock prices arranged as a matrix
-    or a DataFrame, e.g.
-    Date        Stock A    Stock B     ...    Stock X
-    2011-12-01  121.3       12.2       ...      43.1
-    2011-12-02  123.1       13.1       ...      41.2
-    ...
-    2011-12-31
-    @param ls_allocation: allocation = [allocation_stock_A, allocation_stock_B, ...,
-                                        allocation_stock_X]
-    @return: portfolio's normalized price
-    """
-    normalized_prices = individual_stock_prices / individual_stock_prices[0, :]
-    portfolio_normalized_price = np.sum(normalized_prices * ls_allocation, axis=1)
-    return portfolio_normalized_price
 
 
 def get_daily_return0(stock_normalized_prices):
@@ -59,10 +39,8 @@ def analyze(basic_portfolio, ls_allocation, source='yahoo', debug=False):
         basic_portfolio.print_information()
         print 'Allocations:', ls_allocation
 
-    stock_close_prices = basic_portfolio.get_stock_close_prices(source)
-    portfolio_normalized_price = get_portfolio_normalized_price(stock_close_prices.values,
-                                                             ls_allocation)
-    daily_return = get_daily_return0(portfolio_normalized_price)
+    portfolio_price = basic_portfolio.get_portfolio_normalized_price(ls_allocation, source)
+    daily_return = get_daily_return0(portfolio_price)
 
     volatility = np.std(daily_return)
     average_daily_ret = np.average(daily_return)
@@ -70,7 +48,7 @@ def analyze(basic_portfolio, ls_allocation, source='yahoo', debug=False):
     # 252 trading days per year
     ndays = 252
     sharpe = average_daily_ret / volatility * np.sqrt(ndays)
-    cum_ret = portfolio_normalized_price[-1] / portfolio_normalized_price[0]
+    cum_ret = portfolio_price[-1] / portfolio_price[0]
 
     if debug:
         print 'Sharpe Ratio:', sharpe
@@ -81,42 +59,11 @@ def analyze(basic_portfolio, ls_allocation, source='yahoo', debug=False):
     return [volatility, average_daily_ret, sharpe, cum_ret]
 
 
-def plot_portfolio_vs_referance(basic_portfolio, ls_allocation, ref_symbol, source='yahoo',
-                                filename=None):
-    """
-    This function draws the portfolio in comparison with
-    the reference
-    """
-    assert isinstance(basic_portfolio, BasicPortfolio)
-
-    stock_close_prices = basic_portfolio.get_stock_close_prices(source)
-
-    ls_port = get_portfolio_normalized_price(stock_close_prices.values, ls_allocation)
-
-    ref_close_price = load_stock_close_price(basic_portfolio.start_date,
-                                             basic_portfolio.end_date, [ref_symbol])
-    ref_normalized_price = ref_close_price.values / ref_close_price.values[0, :]
-
-    # Plot the prices with x-axis=timestamps
-    plt.clf()
-    plt.plot(stock_close_prices.index, ls_port)
-    plt.plot(ref_close_price.index, ref_normalized_price)
-    plt.legend(['Portfolio', ref_symbol])
-    plt.ylabel('Normalized Close Price')
-    plt.xlabel('Date')
-    if filename is None:
-        plt.show()
-    else:
-        path = './result/'
-        plt.savefig(path + filename, format='pdf')
-
-
 def test_draw_portfolio_ref_compare():
     symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     ref_symbol = '^GSPC'
     basic_portfolio = BasicPortfolio(symbols, dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31))
-    plot_portfolio_vs_referance(basic_portfolio, [0.4, 0.4, 0.0, 0.2], ref_symbol, source='local',
-                                filename='small_portforlio.pdf')
+    basic_portfolio.plot_with_reference([0.4, 0.4, 0.0, 0.2], ref_symbol, source='yahoo')
 
 
 def test_best_allocation():
@@ -156,7 +103,7 @@ def test_best_allocation():
 
     ref_symbol = '$SPX'
 
-    plot_portfolio_vs_referance(basic_portfolio, alloc_max, ref_symbol, source='local')
+    basic_portfolio.plot_with_reference(alloc_max, ref_symbol, source='local')
 
 
 if __name__ == '__main__':

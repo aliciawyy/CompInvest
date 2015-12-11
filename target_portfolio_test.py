@@ -2,7 +2,6 @@
 import datetime as dt
 
 from load.load_ticker import load_valid_cac40_names
-from portfolio_analyzer import plot_portfolio_vs_referance
 from portfolio_frontier import get_frontier
 from portfolio import BasicPortfolio
 
@@ -35,17 +34,13 @@ class BackTest(object):
                                        self.reference_symbol, filename=None,
                                        target_return=target_return)
 
-        plot_portfolio_vs_referance(BasicPortfolio(self.symbols, self.start_date,
-                                                   self.mid_date, self.symbol_names),
-                                    best_allocation,
-                                    self.reference_symbol,
-                                    filename='result/portvCAC40-target.before.pdf')
+        BasicPortfolio(self.symbols, self.start_date, self.mid_date, self.symbol_names)\
+            .plot_with_reference(best_allocation, self.reference_symbol,
+                                 filename='result/portvCAC40-target.before.pdf')
 
-        plot_portfolio_vs_referance(BasicPortfolio(self.symbols, self.mid_date,
-                                                   self.end_date, self.symbol_names),
-                                    best_allocation,
-                                    self.reference_symbol,
-                                    filename='result/portvCAC40-target.forecast.pdf')
+        BasicPortfolio(self.symbols, self.mid_date, self.end_date, self.symbol_names)\
+            .plot_with_reference(best_allocation, self.reference_symbol,
+                                 filename='result/portvCAC40-target.forecast.pdf')
 
 
 def backtest_small_french_portfolio():

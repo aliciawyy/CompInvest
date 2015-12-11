@@ -14,8 +14,7 @@ from pandas import DataFrame
 from portfolio import BasicPortfolio
 
 
-def compute_bollinger_band(basic_portfolio, period, source='yahoo',
-                           filename=None):
+def compute_bollinger_band(basic_portfolio, period, source='yahoo', filename=None):
     """
     Compute the bollinger band for a list of stocks.
     @param basic_portfolio: A basic portfolio instance

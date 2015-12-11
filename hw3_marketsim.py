@@ -54,7 +54,7 @@ def read_orders(filename):
         
 
 def write_orders(data_frame, filename):
-    data_frame.to_csv(filename, index = True, header = True)
+    data_frame.to_csv(filename, index=True, header=True)
 
 
 def main(argv):
@@ -85,20 +85,20 @@ def main(argv):
         
     nsize = len(trade_frame.index)
     
-    cashflow = Series(np.zeros(nsize), index = trade_frame.index)
+    cashflow = Series(np.zeros(nsize), index=trade_frame.index)
     
     cashflow[0] = starting_cash
 
-    cashflow -= np.sum(trade_frame * price_frame, axis = 1)
+    cashflow -= np.sum(trade_frame * price_frame, axis=1)
 
     price_frame['_cash'] = 1.0
     trade_frame['_cash'] = cashflow
     
-    hold_frame = np.cumsum(trade_frame, axis = 0)
+    hold_frame = np.cumsum(trade_frame, axis=0)
     
 #    print hold_frame
 
-    portfolio = np.sum(hold_frame * price_frame, axis = 1)
+    portfolio = np.sum(hold_frame * price_frame, axis=1)
     
 #    print portfolio
 
