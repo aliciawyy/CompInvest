@@ -6,7 +6,7 @@ This repository stores some computational investment tools writen in Python base
 It mainly includes tools of
 
 * Portfolio analyzer and optimizer
-* Market similator for backtesting
+* Market simulator for back testing tools
 * Event profiler
 
 The code is on refactoring ... 10 Dec 2015

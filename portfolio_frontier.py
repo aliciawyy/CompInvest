@@ -15,8 +15,7 @@ import matplotlib.pyplot as plt
 
 from load.load_ticker import load_valid_cac40_names
 from load.load_data import load_stock_close_price
-from portfolio_analyzer import get_daily_return0
-from portfolio import BasicPortfolio
+from portfolio import BasicPortfolio, get_daily_return0
 
 
 def get_frontier(basic_portfolio, ref_symbol, filename="EquitiesvFrontier.pdf",
