@@ -4,7 +4,6 @@ This is to get the data locally
 @date 5 oct 2014
 """
 
-# QSTK Imports
 import QSTK.qstkutil.qsdateutil as du
 import QSTK.qstkutil.DataAccess as da
 

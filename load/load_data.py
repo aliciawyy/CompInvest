@@ -16,8 +16,10 @@ def load_stock_close_price(start_date, end_date, ls_symbols, source='yahoo'):
     @param source: source, to load from 'google', 'yahoo' or 'local'
     @return: The close prices of given symbols
     """
-    acceptable_sources = ['google', 'yahoo', 'local']
-    assert source in acceptable_sources
+    acceptable_sources = frozenset(['google', 'yahoo', 'local'])
+    if source not in acceptable_sources:
+        raise ValueError('The given source %s is not in acceptable sources %s' % (
+            source, str(acceptable_sources)))
 
     if source == 'google':
         close_key = 'Close'

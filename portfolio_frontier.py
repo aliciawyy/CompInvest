@@ -16,20 +16,18 @@ import matplotlib.pyplot as plt
 from load.load_ticker import load_valid_cac40_names
 from load.load_data import load_stock_close_price
 from portfolio_analyzer import get_daily_return0, plot_portfolio_vs_referance
+from portfolio import BasicPortfolio
 
 
-def get_frontier(start_date, end_date, ls_symbols, ref_symbol,
-                 ls_names=[], filename="EquitiesvFrontier.pdf",
+def get_frontier(basic_portfolio, ref_symbol, filename="EquitiesvFrontier.pdf",
                  target_return=0.015):
     """
-    @param start_date: start date to draw the frontier
-    @param end_date: end date to draw the frontier
-    @param ls_symbols candidates equities
-    @param ls_names   candidates names
+    @param basic_portfolio
     @param ref_symbol reference symbol
     """
 
-    stock_close_price = load_stock_close_price(start_date, end_date, ls_symbols)
+    assert isinstance(basic_portfolio, BasicPortfolio)
+    stock_close_price = basic_portfolio.get_stock_close_prices()
 
     stock_normalized_price = stock_close_price.values / stock_close_price.values[0, :]
 
@@ -70,24 +68,21 @@ def get_frontier(start_date, end_date, ls_symbols, ref_symbol,
     print 'Optimized portfolio for target return', f_target
     print 'Volatility is ', f_std
 
-    if len(ls_names) == 0:
-        ls_names = ls_symbols
-
-    for i in range(len(na_weights)):
-        if abs(na_weights[i]) > 0.00001:
-            print ls_names[i], ':', na_weights[i]
+    for ticker_name, weight in zip(basic_portfolio.ticker_names, na_weights):
+        if weight > 0.00001:
+            print ticker_name, ':', weight
 
     plt.clf()
     plt.figure(figsize=(8, 10), dpi=100)
 
     # Plot individual stock risk/return as green +
-    for i in range(len(ls_symbols)):
+    for i in range(len(basic_portfolio.ticker_names)):
         #        plt.plot(na_std[i], f_ret, 'g+')
         #        plt.text(na_std[i], f_ret, ls_names[i], fontsize = 10)
         ave = np.average(daily_return0[:, i])
         std = np.std(daily_return0[:, i])
         plt.plot(std, ave, 'g+')
-        plt.text(std, ave, ls_names[i], fontsize=5)
+        plt.text(std, ave, basic_portfolio.ticker_names[i], fontsize=5)
 
     ref_daily_return = get_daily_return0(ref_normalized_price)
     ave = np.average(ref_daily_return)
@@ -118,7 +113,7 @@ def optimize(start_date, end_date, ls_symbols, ref_symbol,
     @return alloc allocation of equities
     """
 
-    optimized_allocation = get_frontier(start_date, end_date, ls_symbols, ref_symbol,
+    optimized_allocation = get_frontier(basic_portfolio, ref_symbol,
                                         ls_names, filename, target_return)
 
     plot_portfolio_vs_referance(start_date, end_date, ls_symbols,

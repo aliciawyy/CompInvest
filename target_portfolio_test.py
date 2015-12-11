@@ -1,9 +1,10 @@
 # Third Party import
 import datetime as dt
 
-from load.load_ticker import load_cac40_names
+from load.load_ticker import load_valid_cac40_names
 from portfolio_analyzer import plot_portfolio_vs_referance
 from portfolio_frontier import get_frontier
+from portfolio import BasicPortfolio
 
 
 class BackTest(object):
@@ -15,19 +16,10 @@ class BackTest(object):
          strategy period          test period
     """
 
-    symbol_names = symbols = []
-    # CAC 40
-    reference_symbol = '^FCHI'
-
-    start_date = mid_date = end_date = dt.datetime.today()
-
     def __init__(self, ls_symbols, ref_symbol='^FCHI', end_date=dt.datetime.today(),
                  interval_days=365, ls_symbol_names=[]):
         self.symbols = ls_symbols
-        if len(ls_symbol_names) == 0:
-            self.symbol_names = self.symbols
-        else:
-            self.symbol_names = ls_symbol_names
+        self.symbol_names = self.symbols if len(ls_symbol_names) == 0 else ls_symbol_names
         self.reference_symbol = ref_symbol
         self.end_date = end_date
         self.mid_date = self.end_date - dt.timedelta(days=interval_days)
@@ -35,18 +27,25 @@ class BackTest(object):
 
     def testing(self, target_return=0.011):
         """
-        The method of backtesting
+        The method of back testing
         @param target_return: target return of the portfolio
         """
-        best_allocation = get_frontier(self.start_date, self.mid_date, self.symbols,
-                                       self.reference_symbol,ls_names=self.symbol_names,
-                                       filename=None, target_return=target_return)
+        best_allocation = get_frontier(BasicPortfolio(self.symbols, self.start_date,
+                                                      self.mid_date, self.symbol_names),
+                                       self.reference_symbol, filename=None,
+                                       target_return=target_return)
 
-        plot_portfolio_vs_referance(self.start_date, self.mid_date, self.symbols, best_allocation,
-                                    self.reference_symbol, filename="portvCAC40-target.before.pdf")
+        plot_portfolio_vs_referance(BasicPortfolio(self.symbols, self.start_date,
+                                                   self.mid_date, self.symbol_names),
+                                    best_allocation,
+                                    self.reference_symbol,
+                                    filename='result/portvCAC40-target.before.pdf')
 
-        plot_portfolio_vs_referance(self.mid_date, self.end_date, self.symbols, best_allocation,
-                                    self.reference_symbol, filename="portvCAC40-target.forecast.pdf")
+        plot_portfolio_vs_referance(BasicPortfolio(self.symbols, self.mid_date,
+                                                   self.end_date, self.symbol_names),
+                                    best_allocation,
+                                    self.reference_symbol,
+                                    filename='result/portvCAC40-target.forecast.pdf')
 
 
 def backtest_small_french_portfolio():
@@ -60,10 +59,9 @@ def backtest_small_french_portfolio():
 
 
 def backtest_cac40():
-    cac40_orig = load_cac40_names()
-    cac40_modified = cac40_orig.drop(['SAN.PA', 'UL.PA', 'GSZ.PA'])
+    cac40_orig = load_valid_cac40_names()
     end_date = dt.datetime.today() - dt.timedelta(days=100)
-    backtest_obj = BackTest(cac40_modified, end_date=end_date)
+    backtest_obj = BackTest(cac40_orig.index, end_date=end_date, ls_symbol_names=cac40_orig.values)
     backtest_obj.testing(0.01)
 
 

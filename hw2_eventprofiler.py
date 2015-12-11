@@ -15,8 +15,9 @@ import copy
 
 from load.load_local_data import load_local_data_from_yahoo
 
+
 def find_events(ls_symbols, d_data):
-    ''' Finding the event dataframe '''
+    """ Finding the event dataframe """
     
     df_close = d_data['actual_close']
 
@@ -42,7 +43,7 @@ def find_events(ls_symbols, d_data):
     return df_events    
 
 
-def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
+def EventTest(startd, endd, ls_symbols, filename="MyEventStudy.pdf"):
     
     d_data = load_local_data_from_yahoo(startd, endd, ls_symbols)
     
@@ -57,7 +58,7 @@ def EventTest(startd, endd, ls_symbols, filename = "MyEventStudy.pdf"):
 
 
 def main():
-    '''Main Function'''
+    """Main Function"""
     
     # Construct the two symbol lists SP 500 of 2008 and 2012
     dataobj = da.DataAccess('Yahoo')
@@ -74,7 +75,6 @@ def main():
     EventTest(startd, endd, symbols08, "MyEventStudy08.9.pdf")
     EventTest(startd, endd, symbols12, "MyEventStudy12.9.pdf")
        
-    
-## ------------------------------------------------------------
+
 if __name__ == '__main__':
     main()

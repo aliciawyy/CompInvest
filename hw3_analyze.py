@@ -19,7 +19,7 @@ import pandas as pd
 from load.load_local_data import load_local_data_from_yahoo
 
 
-def Analyze(input_file, ref_symbol):
+def analyze(input_file, ref_symbol):
     
     # Load the portfolio value from the input file
     portfolio = pd.read_csv(input_file, index_col='date')
@@ -43,7 +43,7 @@ def Analyze(input_file, ref_symbol):
 
     # Normalizing the prices   
     port_norm = portfolio.values[:]/portfolio.values[0]
-    ref_norm  = ref_data['close'].values[:]/ref_data['close'].values[0]
+    ref_norm = ref_data['close'].values[:]/ref_data['close'].values[0]
    
     # Plotting the prices with x-axis=timestamps
     plt.clf()
@@ -103,12 +103,12 @@ def main(argv):
     """Main function"""
         
     # file containing the values of the portfolio
-    input_file  = sys.argv[1]
+    input_file = sys.argv[1]
     
     # reference symbol
-    ref_symbol  = sys.argv[2]   
+    ref_symbol = sys.argv[2]
     
-    Analyze(input_file, ref_symbol)
+    analyze(input_file, ref_symbol)
 
 
 if __name__ == '__main__':

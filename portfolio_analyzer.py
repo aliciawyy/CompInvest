@@ -1,22 +1,28 @@
 """
-This is the code of homework 1 to learn QSTK
+This file regroups some basic analysis functions
+of portfolio.
 
-@author: Alicia Wang
-@date: 4 Oct 2014
+@author: Alice Wang
 """
-# QSTK Imports
 import QSTK.qstkutil.tsutil as tsu
-# Third Party Imports
 import datetime as dt
 import matplotlib.pyplot as plt
 import numpy as np
 from load.load_data import load_stock_close_price
+from portfolio import BasicPortfolio
 
 
 def get_portfolio_normalized_price(individual_stock_prices, ls_allocation):
     """
-    @param individual_stock_prices: list of individual stock prices
-    @param ls_allocation: allocation
+    @param individual_stock_prices: list of individual stock prices arranged as a matrix
+    or a DataFrame, e.g.
+    Date        Stock A    Stock B     ...    Stock X
+    2011-12-01  121.3       12.2       ...      43.1
+    2011-12-02  123.1       13.1       ...      41.2
+    ...
+    2011-12-31
+    @param ls_allocation: allocation = [allocation_stock_A, allocation_stock_B, ...,
+                                        allocation_stock_X]
     @return: portfolio's normalized price
     """
     normalized_prices = individual_stock_prices / individual_stock_prices[0, :]
@@ -29,14 +35,12 @@ def get_daily_return0(stock_normalized_prices):
     return tsu.returnize0(tmp)
 
 
-def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', debug=False):
+def analyze(basic_portfolio, ls_allocation, source='yahoo', debug=False):
     """
     This function analyze the portfolio behavior between the
-    start_date and the endd_ate, it takes four params as following
+    start_date and the end_ate, it takes four params as following
 
-    @param start_date
-    @param end_date
-    @param ls_symbols Symbols for for equities
+    @param basic_portfolio
     (e.g., ['GOOG','AAPL','GLD','XOM'])
     @param ls_allocation Allocations to the equities at the beginning of the
     simulation (e.g., [0.2, 0.3, 0.4, 0.1])
@@ -50,13 +54,12 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
     in an year. And risk free rate = 0) of the total portfolio
     @return cum_ret Cumulative return of the total portfolio
     """
+    assert isinstance(basic_portfolio, BasicPortfolio)
     if debug:
-        print 'Start date:', start_date
-        print 'End date:', end_date
-        print 'Symbols:', ls_symbols
+        basic_portfolio.print_information()
         print 'Allocations:', ls_allocation
 
-    stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols, source)
+    stock_close_prices = basic_portfolio.get_stock_close_prices(source)
     portfolio_normalized_price = get_portfolio_normalized_price(stock_close_prices.values,
                                                              ls_allocation)
     daily_return = get_daily_return0(portfolio_normalized_price)
@@ -78,18 +81,20 @@ def analyze(start_date, end_date, ls_symbols, ls_allocation, source='yahoo', deb
     return [volatility, average_daily_ret, sharpe, cum_ret]
 
 
-def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation, ref_symbol,
+def plot_portfolio_vs_referance(basic_portfolio, ls_allocation, ref_symbol, source='yahoo',
                                 filename=None):
     """
     This function draws the portfolio in comparison with
     the reference
     """
+    assert isinstance(basic_portfolio, BasicPortfolio)
 
-    stock_close_prices = load_stock_close_price(start_date, end_date, ls_symbols)
+    stock_close_prices = basic_portfolio.get_stock_close_prices(source)
 
     ls_port = get_portfolio_normalized_price(stock_close_prices.values, ls_allocation)
 
-    ref_close_price = load_stock_close_price(start_date, end_date, [ref_symbol])
+    ref_close_price = load_stock_close_price(basic_portfolio.start_date,
+                                             basic_portfolio.end_date, [ref_symbol])
     ref_normalized_price = ref_close_price.values / ref_close_price.values[0, :]
 
     # Plot the prices with x-axis=timestamps
@@ -109,22 +114,22 @@ def plot_portfolio_vs_referance(start_date, end_date, ls_symbols, ls_allocation,
 def test_draw_portfolio_ref_compare():
     symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     ref_symbol = '^GSPC'
-    plot_portfolio_vs_referance(dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31),
-                                symbols, [0.4, 0.4, 0.0, 0.2], ref_symbol,
+    basic_portfolio = BasicPortfolio(symbols, dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31))
+    plot_portfolio_vs_referance(basic_portfolio, [0.4, 0.4, 0.0, 0.2], ref_symbol, source='local',
                                 filename='small_portforlio.pdf')
 
 
 def test_best_allocation():
     """
-    Test that it is possible to find the best portofolio (highest sharpe ratio)
+    This function is to remove
+    Test that it is possible to find the best portfolio (highest sharpe ratio)
     given a list of symbols using the methods above.
     """
 
     # symbols = ['BRCM', 'TXN', 'IBM', 'HNZ'] 
     symbols = ['AAPL', 'GOOG', 'IBM', 'MSFT']
     # ['GOOG','AAPL','GLD','XOM']
-    startd = dt.datetime(2014, 1, 1)
-    endd = dt.datetime(2014, 12, 31)
+    basic_portfolio = BasicPortfolio(symbols, dt.datetime(2014, 1, 1), dt.datetime(2014, 12, 31))
 
     alloc = range(4)
 
@@ -140,7 +145,7 @@ def test_best_allocation():
                 alloc[3] = (10 - i - j - k) * 0.1
 
                 vol, daily_ret, sharpe, cum_ret = \
-                    analyze(startd, endd, symbols, alloc)
+                    analyze(basic_portfolio, alloc)
 
                 if sharpe > sharpe_max:
                     sharpe_max = sharpe
@@ -151,9 +156,8 @@ def test_best_allocation():
 
     ref_symbol = '$SPX'
 
-    plot_portfolio_vs_referance(startd, endd, symbols, alloc_max, ref_symbol)
+    plot_portfolio_vs_referance(basic_portfolio, alloc_max, ref_symbol, source='local')
 
 
 if __name__ == '__main__':
-    test_valid_run()
     test_draw_portfolio_ref_compare()

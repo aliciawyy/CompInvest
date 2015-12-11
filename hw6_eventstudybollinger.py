@@ -14,13 +14,13 @@ import numpy as np
 import copy
 # Internal Imports
 from load.load_local_data import load_local_data_from_yahoo
-from hw5_bollingerbands import ComputeBollingerBands
+from bollinger_band import compute_bollinger_band
 from hw4_tradinggen import GenerateTradingWithEvents
 
 
 def BollingerEventTest(startd, endd, ls_symbols, lookbackdates):
     
-    bolval = ComputeBollingerBands(ls_symbols, startd, endd, lookbackdates)
+    bolval = compute_bollinger_band(ls_symbols, startd, endd, lookbackdates)
     ts_market = bolval['SPY']
     
     # Time stamps for the event range
