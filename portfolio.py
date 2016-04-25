@@ -156,7 +156,6 @@ class BasicPortfolio(object):
 
         for ticker in self.tickers:
             for i in range(1, len(timestamps)):
-
                 # Calculating the returns for this timestamp
                 price_today = actual_close_price[ticker].ix[timestamps[i]]
                 price_yesterday = actual_close_price[ticker].ix[timestamps[i - 1]]

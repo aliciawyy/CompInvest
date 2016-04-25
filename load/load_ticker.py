@@ -23,7 +23,7 @@ def load_cac40_names():
     and Equity's _Name_ as value
     """
 
-    filename = os.path.dirname(__file__) + '/info/cac40.csv'
+    filename = os.path.join(os.path.dirname(__file__), 'info', 'cac40.csv')
 
     print '[info]Load the CAC 40 List from ', filename
 
